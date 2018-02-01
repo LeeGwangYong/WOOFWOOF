@@ -17,11 +17,13 @@ class MapViewController: UIViewController {
     var flag = false
 //MARK -: Property
     @IBOutlet var mapAreaView: UIView!
+    @IBOutlet var timeLabel: UILabel!
     lazy var mapView: MTMapView = MTMapView(frame:
         CGRect(x: 0, y: 0, width: self.mapAreaView.frame.size.width, height: self.mapAreaView.frame.size.height))
     let locationManager = CLLocationManager()
     var currentLocation: MTMapPoint?
     @IBOutlet var profileImage: RoundedImageView!
+    var date: Date?
     
     //MARK -: Method
     override func viewDidLoad() {
@@ -31,6 +33,7 @@ class MapViewController: UIViewController {
         DispatchQueue.main.async {
             print("Map : RSSI \(PeripheralInfo.currentRSSI)")
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

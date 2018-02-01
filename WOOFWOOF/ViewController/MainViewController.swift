@@ -23,6 +23,17 @@ class MainViewController: UIViewController {
         educationTime.minimumScaleFactor = 0.1
         self.planCollectionView.setUp(target: self, cell: InstructionCollectionViewCell.self)
         popUp = UINib(nibName: PopUpView.reuseIdentifier, bundle: nil).instantiate(withOwner: self, options: nil)[0] as! PopUpView
+        
+        updateEducationTime()
+    }
+    
+    func updateEducationTime() {
+        educationTime.text = "마지막 교육 시간 : "
+        if let date = UserDefaults.standard.object(forKey: "education") as? Date {
+            let dateFormat = DateFormatter()
+            dateFormat.dateFormat = "yyyy년 MM월 dd일 HH시 mm분"
+            educationTime.text = "마지막 교육 시간 : \(dateFormat.string(from: date))"
+        }
     }
 }
 
@@ -59,6 +70,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 self.view.layoutIfNeeded()
                 
             })
+        }
+        else {
+            UserDefaults.standard.set(Date(), forKey: "education")
+            updateEducationTime()
         }
     }
     

@@ -271,6 +271,7 @@
                     <connections>
                         <outlet property="mapAreaView" destination="KgD-6s-Bzw" id="iZX-rz-FrL"/>
                         <outlet property="profileImage" destination="kKV-Sg-mLm" id="z0D-F8-6Yh"/>
+                        <outlet property="timeLabel" destination="tMU-L2-Q0V" id="265-Cd-FYt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4h-UN-Hea" userLabel="First Responder" sceneMemberID="firstResponder"/>
