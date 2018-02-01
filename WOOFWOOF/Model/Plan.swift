@@ -1,5 +1,5 @@
 //
-//  Instruction.swift
+//  Plan.swift
 //  WOOFWOOF
 //
 //  Created by 이광용 on 2018. 2. 1..
@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class Instruction: Object {
+class Plan: Object {
     static var realm: Realm {
         return try! Realm()
     }
@@ -18,7 +18,8 @@ class Instruction: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var image: Data = Data()
-    @objc dynamic var value: Int = 0
+    @objc dynamic var active: Bool = false
+    
     
     override static func primaryKey() -> String? {
         return "title"
@@ -58,14 +59,26 @@ class Instruction: Object {
         }
     }
     
-    static func write(title: String, name: String, image: UIImage, value: Int) {
-        let inst: Instruction = Instruction()
+    static func write(title: String, name: String, image: UIImage) {
+        let inst: Plan = Plan()
         inst.title = title
         inst.name = name
         inst.image = UIImagePNGRepresentation(image)!
-        inst.value = value
         self.addToRealm(inst)
     }
+    
+    
+    
+    static func updateRealm(title: String, active: Bool) {
+        let items = realm.objects(Plan.self).filter("title == '\(title)'")
+        
+        let insideRealm = try! Realm()
+        try! insideRealm.write {
+            if let item = items.first {
+                item.active = active
+            }
+        }
+        
+    }
 }
-
 

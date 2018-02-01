@@ -10,9 +10,10 @@ import UIKit
 
 class PopUpView: UIView {
     
+    @IBOutlet var buyButton: UIButton!
+    @IBOutlet var backView: UIView!
     override func awakeFromNib() {
-        self.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closeView)))
+        self.backView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closeView)))
     }
     
     @objc func closeView(){
@@ -21,6 +22,13 @@ class PopUpView: UIView {
     
     @IBAction func closeAction(_ sender: UIButton) {
         self.removeFromSuperview()
+    }
+
+    override func removeFromSuperview() {
+        UIView.animate(withDuration: 1) {
+            self.alpha = 0
+        }
+        super.removeFromSuperview()
     }
     
 }

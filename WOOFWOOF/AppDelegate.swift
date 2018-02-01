@@ -32,8 +32,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tababarController.selectedIndex = 1
         }
         
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+        } else {
+            print("First launch, setting UserDefault.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            
+            Instruction.write(title: "sitOn", name: "앉아", image: #imageLiteral(resourceName: "sitMain"), value: 1)
+            Instruction.write(title: "downOn", name: "엎드려", image: #imageLiteral(resourceName: "downMain"), value: 2)
+            Instruction.write(title: "waitOn", name: "기다려", image: #imageLiteral(resourceName: "waitMain"), value: 3)
+            Instruction.write(title: "comeOff", name: "이리와", image: #imageLiteral(resourceName: "comeOff"), value: 0)
+            Instruction.write(title: "handOff", name: "손", image: #imageLiteral(resourceName: "handOff"), value: 0)
+            Instruction.write(title: "barkOff", name: "짖어", image: #imageLiteral(resourceName: "barkOff"), value: 0)
+            Instruction.write(title: "bangOff", name: "빵야", image: #imageLiteral(resourceName: "bangOff"), value: 0)
+            Instruction.write(title: "standOff", name: "일어서", image: #imageLiteral(resourceName: "standOff"), value: 0)
+            Instruction.write(title: "rollOff", name: "굴러", image: #imageLiteral(resourceName: "rollOff"), value: 0)
+            
+            Plan.write(title: "sitOn", name: "앉아", image: #imageLiteral(resourceName: "sitMain"))
+            Plan.write(title: "downOn", name: "엎드려", image: #imageLiteral(resourceName: "downMain"))
+            Plan.write(title: "waitOn", name: "기다려", image: #imageLiteral(resourceName: "waitMain"))
+            Plan.write(title: "comeOff", name: "이리와", image: #imageLiteral(resourceName: "comeMain"))
+            Plan.write(title: "handOff", name: "손", image: #imageLiteral(resourceName: "handMain"))
+            Plan.write(title: "barkOff", name: "짖어", image: #imageLiteral(resourceName: "barkMain"))
+            Plan.write(title: "bangOff", name: "빵야", image: #imageLiteral(resourceName: "bangMain"))
+            Plan.write(title: "standOff", name: "일어서", image: #imageLiteral(resourceName: "standMain"))
+            Plan.write(title: "rollOff", name: "굴러", image: #imageLiteral(resourceName: "rollMain"))
+        }
+        
         return true
+        
     }
+    
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

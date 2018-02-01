@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		44259CBE4961CCE81722A775 /* Pods_WOOFWOOF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419B4A4D2722D04EB101359B /* Pods_WOOFWOOF.framework */; };
+		FC2025C520231E17005773FB /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2025C420231E17005773FB /* Plan.swift */; };
+		FC2025C8202325A1005773FB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2025C7202325A1005773FB /* Profile.swift */; };
+		FC2025CA202336D9005773FB /* bluetooth.json in Resources */ = {isa = PBXBuildFile; fileRef = FC2025C9202336D9005773FB /* bluetooth.json */; };
+		FC2025CC20233838005773FB /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2025CB20233838005773FB /* IndicatorView.xib */; };
+		FC2025CE20233843005773FB /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2025CD20233843005773FB /* IndicatorView.swift */; };
 		FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */; };
 		FC206A9E2022A6D200FF0F45 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9D2022A6D200FF0F45 /* InstructionViewController.swift */; };
 		FC206AA12022A6D200FF0F45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC206A9F2022A6D200FF0F45 /* Main.storyboard */; };
@@ -351,6 +356,11 @@
 		419B4A4D2722D04EB101359B /* Pods_WOOFWOOF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WOOFWOOF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A1ABCE19606454B9510E82 /* Pods-WOOFWOOF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WOOFWOOF.release.xcconfig"; path = "Pods/Target Support Files/Pods-WOOFWOOF/Pods-WOOFWOOF.release.xcconfig"; sourceTree = "<group>"; };
 		8736516750314287D0655964 /* Pods-WOOFWOOF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WOOFWOOF.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WOOFWOOF/Pods-WOOFWOOF.debug.xcconfig"; sourceTree = "<group>"; };
+		FC2025C420231E17005773FB /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		FC2025C7202325A1005773FB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		FC2025C9202336D9005773FB /* bluetooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluetooth.json; sourceTree = "<group>"; };
+		FC2025CB20233838005773FB /* IndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
+		FC2025CD20233843005773FB /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		FC206A982022A6D200FF0F45 /* WOOFWOOF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOOFWOOF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC206A9D2022A6D200FF0F45 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
@@ -722,6 +732,7 @@
 		FC206A9A2022A6D200FF0F45 /* WOOFWOOF */ = {
 			isa = PBXGroup;
 			children = (
+				FC2025C9202336D9005773FB /* bluetooth.json */,
 				FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */,
 				FC206F3D2022DAC400FF0F45 /* Style */,
 				FC206F352022BA3200FF0F45 /* Cell */,
@@ -1098,6 +1109,8 @@
 			isa = PBXGroup;
 			children = (
 				FC206F402022DC1900FF0F45 /* Instruction.swift */,
+				FC2025C420231E17005773FB /* Plan.swift */,
+				FC2025C7202325A1005773FB /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1126,6 +1139,8 @@
 				FC206F3E2022DAD400FF0F45 /* RoundedImageView.swift */,
 				FC206F422022DDC800FF0F45 /* PopUpView.xib */,
 				FC206F442022DDDE00FF0F45 /* PopUpView.swift */,
+				FC2025CB20233838005773FB /* IndicatorView.xib */,
+				FC2025CD20233843005773FB /* IndicatorView.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -1282,6 +1297,7 @@
 				FC206E5D2022A8A400FF0F45 /* functions_6.html in Resources */,
 				FC206E752022A8A400FF0F45 /* all_d.js in Resources */,
 				FC206EC02022A8A400FF0F45 /* functions_c.html in Resources */,
+				FC2025CA202336D9005773FB /* bluetooth.json in Resources */,
 				FC206E282022A8A400FF0F45 /* class_m_t_map_point-members.html in Resources */,
 				FC206E9E2022A8A400FF0F45 /* all_13.html in Resources */,
 				FC206EC32022A8A400FF0F45 /* search_m.png in Resources */,
@@ -1306,6 +1322,7 @@
 				FC206E192022A8A400FF0F45 /* _m_t_map_reverse_geo_coder_8h_source.html in Resources */,
 				FC206E722022A8A400FF0F45 /* all_b.html in Resources */,
 				FC206EDF2022A8A400FF0F45 /* interface_m_t_map_polyline.html in Resources */,
+				FC2025CC20233838005773FB /* IndicatorView.xib in Resources */,
 				FC206E472022A8A400FF0F45 /* interface_m_t_map_location_marker_item.html in Resources */,
 				FC206E402022A8A400FF0F45 /* class_m_t_map_polyline-members.html in Resources */,
 				FC206EB22022A8A400FF0F45 /* functions_5.js in Resources */,
@@ -1573,10 +1590,13 @@
 				FC206F342022BA1600FF0F45 /* Reusable.swift in Sources */,
 				FC206F3B2022CD5000FF0F45 /* Designable.swift in Sources */,
 				FC206F382022BB9900FF0F45 /* InstructionCollectionViewCell.swift in Sources */,
+				FC2025CE20233843005773FB /* IndicatorView.swift in Sources */,
+				FC2025C520231E17005773FB /* Plan.swift in Sources */,
 				FC206A9E2022A6D200FF0F45 /* InstructionViewController.swift in Sources */,
 				FC206F472023098F00FF0F45 /* CircleImage.swift in Sources */,
 				FC206F302022ACBE00FF0F45 /* MainViewController.swift in Sources */,
 				FC206F2E2022ACB700FF0F45 /* MapViewController.swift in Sources */,
+				FC2025C8202325A1005773FB /* Profile.swift in Sources */,
 				FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */,
 				FC206F322022B92000FF0F45 /* TaCoExtension.swift in Sources */,
 				FC206F412022DC1900FF0F45 /* Instruction.swift in Sources */,

@@ -21,14 +21,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="184" height="249"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sitOn" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-pC-hk5">
-                        <rect key="frame" x="30" y="62.5" width="124.5" height="124.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sitMain" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-pC-hk5">
+                        <rect key="frame" x="30" y="50" width="124.5" height="124.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="xxQ-pC-hk5" secondAttribute="height" multiplier="1:1" id="Fqa-O6-MWU"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앉아" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYU-Lg-qFo">
-                        <rect key="frame" x="30" y="192" width="124.5" height="18"/>
+                        <rect key="frame" x="30" y="179.5" width="124.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="xxQ-pC-hk5" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="1ME-Bg-pmu"/>
+                <constraint firstItem="xxQ-pC-hk5" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" multiplier="0.9" id="1ME-Bg-pmu"/>
                 <constraint firstItem="XYU-Lg-qFo" firstAttribute="width" secondItem="xxQ-pC-hk5" secondAttribute="width" id="3Xm-KG-gqS"/>
                 <constraint firstItem="XYU-Lg-qFo" firstAttribute="centerX" secondItem="xxQ-pC-hk5" secondAttribute="centerX" id="7vX-zq-Ev2"/>
                 <constraint firstItem="XYU-Lg-qFo" firstAttribute="top" secondItem="xxQ-pC-hk5" secondAttribute="bottom" constant="5" id="DGw-hl-puw"/>
@@ -53,6 +53,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="sitOn" width="73" height="73"/>
+        <image name="sitMain" width="93" height="93"/>
     </resources>
 </document>

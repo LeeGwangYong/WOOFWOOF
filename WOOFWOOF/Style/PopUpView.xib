@@ -17,6 +17,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYS-Ep-e87">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddw-gg-PWx">
                     <rect key="frame" x="62.5" y="254.5" width="250" height="178"/>
                     <subviews>
@@ -25,13 +29,16 @@
                             <color key="backgroundColor" red="0.21911388635635376" green="0.74637550115585327" blue="0.93841308355331421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
                             <state key="normal" title="구매하기">
-                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" white="0.46742078993055558" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="closeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="IUh-Iw-76I"/>
+                            </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockicon" translatesAutoresizingMaskIntoConstraints="NO" id="siE-x3-mEh">
                             <rect key="frame" x="97.5" y="10" width="55" height="55"/>
@@ -83,16 +90,23 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <constraints>
                 <constraint firstItem="ddw-gg-PWx" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="BZq-SD-swf"/>
                 <constraint firstItem="ZEy-Lu-Scf" firstAttribute="trailing" secondItem="ddw-gg-PWx" secondAttribute="trailing" id="S2w-7H-4Nn"/>
                 <constraint firstItem="NGr-fr-CcI" firstAttribute="top" secondItem="ZEy-Lu-Scf" secondAttribute="bottom" constant="12" id="UDl-HI-yDx"/>
                 <constraint firstItem="ddw-gg-PWx" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="YbY-eI-qOY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="YYS-Ep-e87" secondAttribute="bottom" id="dRu-ZH-ZeZ"/>
+                <constraint firstItem="YYS-Ep-e87" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="gYe-cL-U3v"/>
                 <constraint firstItem="ZEy-Lu-Scf" firstAttribute="width" secondItem="ddw-gg-PWx" secondAttribute="width" id="pwt-Uu-VGr"/>
                 <constraint firstItem="ZEy-Lu-Scf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="siE-x3-mEh" secondAttribute="bottom" constant="5" id="qxG-qd-LtI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YYS-Ep-e87" secondAttribute="trailing" id="w9g-RT-iOq"/>
+                <constraint firstItem="YYS-Ep-e87" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="z7i-Ch-sMN"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="backView" destination="YYS-Ep-e87" id="DB5-oV-sM2"/>
+                <outlet property="buyButton" destination="NGr-fr-CcI" id="mnb-Xc-55a"/>
+            </connections>
             <point key="canvasLocation" x="91.5" y="53.5"/>
         </view>
     </objects>

@@ -21,12 +21,16 @@ class MapViewController: UIViewController {
         CGRect(x: 0, y: 0, width: self.mapAreaView.frame.size.width, height: self.mapAreaView.frame.size.height))
     let locationManager = CLLocationManager()
     var currentLocation: MTMapPoint?
+    @IBOutlet var profileImage: RoundedImageView!
     
-//MARK -: Method
+    //MARK -: Method
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.profileImage.image = Profile.getProfile()
         self.setUpMap()
-        
+        DispatchQueue.main.async {
+            print("Map : RSSI \(PeripheralInfo.currentRSSI)")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +61,7 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
             markerItem.fillColor = UIColor.green.withAlphaComponent(0.1)
             markerItem.strokeColor = UIColor.green.withAlphaComponent(0.3)
             markerItem.radius = 30
+            markerItem.customTrackingImageName = "map_present.png"
             self.mapView.updateCurrentLocationMarker(markerItem)
             self.mapAreaView.insertSubview(mapView, at: 0)
         }
@@ -85,7 +90,7 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
         switch type {
         case .dog:
             poiItem.tag = POIType.dog.rawValue
-            poiItem.customImage = getPinImage(topImage: #imageLiteral(resourceName: "dogExample").circleMasked!)
+            poiItem.customImage = getPinImage(topImage: Profile.getProfile().circleMasked!)
 //            37.4506395233017
 //            126.655187004005
             poiItem.customImageAnchorPointOffset = .init(offsetX: Int32(poiItem.customImage.size.width / 2) , offsetY: 0)

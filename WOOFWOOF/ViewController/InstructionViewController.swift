@@ -12,11 +12,12 @@ import Realm
 import RealmSwift
 
 struct PeripheralInfo{
-    static let name = "HMSoft"
+    static let name = "WOOF"
     static let service_UUID =
         CBUUID(string: "FFE0")
     static let characteristic_UUID =
         CBUUID(string: "FFE1")
+    static var currentRSSI:NSNumber = 0
 }
 
 
@@ -27,6 +28,7 @@ class InstructionViewController: UIViewController {
     var character: CBCharacteristic?
     
     var instructionArray = Instruction.realm.objects(Instruction.self)
+    var popUp: PopUpView!
     
     @IBOutlet var instructionCollectionView: UICollectionView!
     @IBOutlet var remoteView: UIView!
@@ -39,31 +41,7 @@ class InstructionViewController: UIViewController {
         super.viewDidLoad()
         self.setUpBluetooth()
         self.instructionCollectionView.setUp(target: self, cell: InstructionCollectionViewCell.self)
-        
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore  {
-            print("Not first launch.")
-        } else {
-            print("First launch, setting UserDefault.")
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-            write(title: "sitOn", name: "앉아", image: #imageLiteral(resourceName: "sitOn"), value: 1)
-            write(title: "downOn", name: "엎드려", image: #imageLiteral(resourceName: "downOn"), value: 2)
-            write(title: "waitOn", name: "기다려", image: #imageLiteral(resourceName: "waitOn"), value: 3)
-            write(title: "comeOff", name: "이리와", image: #imageLiteral(resourceName: "comeOff"), value: 0)
-            write(title: "handOff", name: "손", image: #imageLiteral(resourceName: "handOff"), value: 0)
-            write(title: "barkOff", name: "짖어", image: #imageLiteral(resourceName: "barkOff"), value: 0)
-            write(title: "bangOff", name: "빵야", image: #imageLiteral(resourceName: "bangOff"), value: 0)
-            write(title: "standOff", name: "일어서", image: #imageLiteral(resourceName: "standOff"), value: 0)
-            write(title: "rollOff", name: "굴러", image: #imageLiteral(resourceName: "rollOff"), value: 0)
-        }
-    }
-    func write(title: String, name: String, image: UIImage, value: Int) {
-        let inst: Instruction = Instruction()
-        inst.title = title
-        inst.name = name
-        inst.image = UIImagePNGRepresentation(image)!
-        inst.value = value
-        Instruction.addToRealm(inst)
+        popUp = UINib(nibName: PopUpView.reuseIdentifier, bundle: nil).instantiate(withOwner: self, options: nil)[0] as! PopUpView
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,7 +55,7 @@ class InstructionViewController: UIViewController {
         editFlag = editFlag ? false : true
         let viewHeight = editFlag ? 225 : height * 0.8
         editButton.setTitle(editFlag ? "편집" : "저장", for: .normal)
-        editButton.setTitleColor(editFlag ? UIColor(displayP3Red: 202/255, green: 202/255, blue: 202/255, alpha: 1) : UIColor(displayP3Red: 193/255, green: 14/255, blue: 72/255, alpha: 1), for: .normal)
+        editButton.setTitleColor(editFlag ? UIColor(displayP3Red: 150/255, green: 150/255, blue: 150/255, alpha: 1) : UIColor(displayP3Red: 193/255, green: 14/255, blue: 72/255, alpha: 1), for: .normal)
         editButton.borderColor = editButton.currentTitleColor
         
         UIView.animate(withDuration: 1) {
@@ -86,7 +64,7 @@ class InstructionViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
+    var i = 0
 }
 
 extension InstructionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -103,7 +81,7 @@ extension InstructionViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = editFlag ? self.instructionCollectionView.frame.height : self.instructionCollectionView.frame.height / 3
+        let height = editFlag ? self.instructionCollectionView.frame.height : self.instructionCollectionView.frame.height / 3.3
         return CGSize(width: collectionView.frame.width / 3.3, height: height )
     }
     
@@ -113,14 +91,21 @@ extension InstructionViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if indexPath.row < 4 {
+        if indexPath.row < 3 {
             let value: UInt8 = UInt8(exactly: instructionArray[indexPath.row].value)!
             let data = Data(bytes: [value])
             if let character = self.character {
                 peripheral.writeValue(data, for: character, type: .withoutResponse)
             }
         } else {
-            
+            self.popUp.frame = self.view.frame
+            self.popUp.alpha = 0
+            self.parent?.parent?.view.addSubview(popUp)
+            UIView.animate(withDuration: 1, animations: {
+                self.popUp.alpha = 1
+                self.view.layoutIfNeeded()
+        
+            })
         }
     }
 }
@@ -149,11 +134,12 @@ extension InstructionViewController: CBCentralManagerDelegate, CBPeripheralDeleg
         }
     }
     
+    
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         let device = (advertisementData as NSDictionary).object(forKey: CBAdvertisementDataLocalNameKey) as? NSString
         
-        print("Peripheral Name : \(advertisementData[CBAdvertisementDataLocalNameKey])")
-        
+        print("Peripheral Name : \(advertisementData[CBAdvertisementDataLocalNameKey]) \(i)")
+        i = i + 1
         if device?.contains(PeripheralInfo.name) == true {
             self.manager.stopScan()
             self.peripheral = peripheral
@@ -164,6 +150,7 @@ extension InstructionViewController: CBCentralManagerDelegate, CBPeripheralDeleg
     
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         print("DidReadRSSI : \(RSSI)")
+        PeripheralInfo.currentRSSI = RSSI
     }
     
     func peripheralDidUpdateRSSI(_ peripheral: CBPeripheral, error: Error?) {
@@ -196,12 +183,15 @@ extension InstructionViewController: CBCentralManagerDelegate, CBPeripheralDeleg
             if cbcharacteristic.uuid == PeripheralInfo.characteristic_UUID {
                 self.character = cbcharacteristic
                 self.peripheral.setNotifyValue(true, for: cbcharacteristic) //주기적인 업데이트
+//                self.peripheral.setNotifyValue(true, for: characteristicUpdatingEveryQuarterOfASecond)
             }
         }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         //백그라운드에서 받는 게 가능할까?
+        
+        self.peripheral.readRSSI()
         print(characteristic.uuid)
         //        var count:UInt8 = 1
         //        //notification에 설정된 characteristic이 update될 때, 해당 delegate method 실행
