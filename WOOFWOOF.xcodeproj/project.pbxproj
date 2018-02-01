@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		44259CBE4961CCE81722A775 /* Pods_WOOFWOOF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419B4A4D2722D04EB101359B /* Pods_WOOFWOOF.framework */; };
 		FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */; };
-		FC206A9E2022A6D200FF0F45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9D2022A6D200FF0F45 /* ViewController.swift */; };
+		FC206A9E2022A6D200FF0F45 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9D2022A6D200FF0F45 /* MainViewController.swift */; };
 		FC206AA12022A6D200FF0F45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC206A9F2022A6D200FF0F45 /* Main.storyboard */; };
 		FC206AA32022A6D200FF0F45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC206AA22022A6D200FF0F45 /* Assets.xcassets */; };
 		FC206AA62022A6D200FF0F45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC206AA42022A6D200FF0F45 /* LaunchScreen.storyboard */; };
@@ -295,6 +295,8 @@
 		FC206F1A2022A95000FF0F45 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F192022A95000FF0F45 /* libsqlite3.tbd */; };
 		FC206F252022AAA500FF0F45 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F222022AA8B00FF0F45 /* Charts.framework */; };
 		FC206F262022AAA500FF0F45 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F222022AA8B00FF0F45 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FC206F2E2022ACB700FF0F45 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F2D2022ACB700FF0F45 /* MapViewController.swift */; };
+		FC206F302022ACBE00FF0F45 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F2F2022ACBE00FF0F45 /* ChartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -341,7 +343,7 @@
 		8736516750314287D0655964 /* Pods-WOOFWOOF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WOOFWOOF.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WOOFWOOF/Pods-WOOFWOOF.debug.xcconfig"; sourceTree = "<group>"; };
 		FC206A982022A6D200FF0F45 /* WOOFWOOF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOOFWOOF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC206A9D2022A6D200FF0F45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC206A9D2022A6D200FF0F45 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FC206AA02022A6D200FF0F45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC206AA22022A6D200FF0F45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC206AA52022A6D200FF0F45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -628,6 +630,8 @@
 		FC206F192022A95000FF0F45 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FC206F1B2022A9C300FF0F45 /* DaumMap_Briding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaumMap_Briding.h; sourceTree = "<group>"; };
 		FC206F1C2022AA8B00FF0F45 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../Initialize Project/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		FC206F2D2022ACB700FF0F45 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FC206F2F2022ACBE00FF0F45 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -699,10 +703,11 @@
 			isa = PBXGroup;
 			children = (
 				FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */,
-				FC206A9D2022A6D200FF0F45 /* ViewController.swift */,
-				FC206A9F2022A6D200FF0F45 /* Main.storyboard */,
+				FC206F2C2022AB9800FF0F45 /* Storyboard */,
+				FC206F2B2022AB8900FF0F45 /* Model */,
+				FC206F2A2022AB8200FF0F45 /* Extension */,
+				FC206F292022AB7B00FF0F45 /* ViewController */,
 				FC206AA22022A6D200FF0F45 /* Assets.xcassets */,
-				FC206AA42022A6D200FF0F45 /* LaunchScreen.storyboard */,
 				FC206AA72022A6D200FF0F45 /* Info.plist */,
 				FC206F1B2022A9C300FF0F45 /* DaumMap_Briding.h */,
 			);
@@ -1046,6 +1051,39 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FC206F292022AB7B00FF0F45 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FC206A9D2022A6D200FF0F45 /* MainViewController.swift */,
+				FC206F2D2022ACB700FF0F45 /* MapViewController.swift */,
+				FC206F2F2022ACBE00FF0F45 /* ChartViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FC206F2A2022AB8200FF0F45 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FC206F2B2022AB8900FF0F45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC206F2C2022AB9800FF0F45 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FC206AA42022A6D200FF0F45 /* LaunchScreen.storyboard */,
+				FC206A9F2022A6D200FF0F45 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1084,6 +1122,11 @@
 					FC206A972022A6D200FF0F45 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1478,7 +1521,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC206A9E2022A6D200FF0F45 /* ViewController.swift in Sources */,
+				FC206A9E2022A6D200FF0F45 /* MainViewController.swift in Sources */,
+				FC206F302022ACBE00FF0F45 /* ChartViewController.swift in Sources */,
+				FC206F2E2022ACB700FF0F45 /* MapViewController.swift in Sources */,
 				FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
