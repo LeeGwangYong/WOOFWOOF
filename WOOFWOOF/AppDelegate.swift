@@ -13,7 +13,7 @@ import CoreBluetooth
 
 
 struct PeripheralInfo{
-    static let name = "WF2"
+    static let name = "WOOF"
     static let service_UUID =
         CBUUID(string: "FFE0")
     static let characteristic_UUID =
@@ -151,6 +151,7 @@ extension AppDelegate: CBCentralManagerDelegate, CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         print("DidReadRSSI : \(RSSI)")
         PeripheralInfo.currentRSSI = RSSI
+        NotificationCenter.default.post(name: .rssi, object: RSSI)
     }
     
     func peripheralDidUpdateRSSI(_ peripheral: CBPeripheral, error: Error?) {

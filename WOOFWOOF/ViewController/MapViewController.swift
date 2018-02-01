@@ -32,10 +32,11 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         self.profileImage.image = Profile.getProfile()
         self.setUpMap()
-        DispatchQueue.main.async {
-            print("Map : RSSI \(PeripheralInfo.currentRSSI)")
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(getRSSI(rssi:)), name: .rssi, object: nil)
         
+    }
+    @objc func getRSSI(rssi: NSNumber) {
+        print("Map : \(rssi)")
     }
     
     override func viewWillAppear(_ animated: Bool) {

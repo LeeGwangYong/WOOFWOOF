@@ -13,6 +13,7 @@
 		FC2025CA202336D9005773FB /* bluetooth.json in Resources */ = {isa = PBXBuildFile; fileRef = FC2025C9202336D9005773FB /* bluetooth.json */; };
 		FC2025CC20233838005773FB /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2025CB20233838005773FB /* IndicatorView.xib */; };
 		FC2025CE20233843005773FB /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2025CD20233843005773FB /* IndicatorView.swift */; };
+		FC202D6E20236643005773FB /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC202D6D20236643005773FB /* NotificationName.swift */; };
 		FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */; };
 		FC206A9E2022A6D200FF0F45 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9D2022A6D200FF0F45 /* InstructionViewController.swift */; };
 		FC206AA12022A6D200FF0F45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC206A9F2022A6D200FF0F45 /* Main.storyboard */; };
@@ -361,6 +362,7 @@
 		FC2025C9202336D9005773FB /* bluetooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluetooth.json; sourceTree = "<group>"; };
 		FC2025CB20233838005773FB /* IndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
 		FC2025CD20233843005773FB /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		FC202D6D20236643005773FB /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		FC206A982022A6D200FF0F45 /* WOOFWOOF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOOFWOOF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC206A9D2022A6D200FF0F45 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
@@ -1101,6 +1103,7 @@
 				FC206F332022BA1600FF0F45 /* Reusable.swift */,
 				FC206F3A2022CD5000FF0F45 /* Designable.swift */,
 				FC206F462023098F00FF0F45 /* CircleImage.swift */,
+				FC202D6D20236643005773FB /* NotificationName.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1595,6 +1598,7 @@
 				FC206A9E2022A6D200FF0F45 /* InstructionViewController.swift in Sources */,
 				FC206F472023098F00FF0F45 /* CircleImage.swift in Sources */,
 				FC206F302022ACBE00FF0F45 /* MainViewController.swift in Sources */,
+				FC202D6E20236643005773FB /* NotificationName.swift in Sources */,
 				FC206F2E2022ACB700FF0F45 /* MapViewController.swift in Sources */,
 				FC2025C8202325A1005773FB /* Profile.swift in Sources */,
 				FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */,
