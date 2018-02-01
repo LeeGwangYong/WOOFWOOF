@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreLocation
+import UserNotifications
+import SwiftyJSON
+
 enum POIType: Int {
     case dog = 0
     case home = 1
@@ -25,6 +28,7 @@ class MapViewController: UIViewController {
     @IBOutlet var profileImage: RoundedImageView!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var alertButton: UIButton!
+    @IBOutlet var preTimeLabel: UILabel!
     
     var date: Date?
     
@@ -33,6 +37,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         self.profileImage.image = Profile.getProfile()
         self.setUpMap()
+
         NotificationCenter.default.addObserver(self, selector: #selector(getRSSI(rssi:)), name: .rssi, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getPeripheralState(notification:)), name: .peripheralState, object: nil)
     }
@@ -42,17 +47,33 @@ class MapViewController: UIViewController {
     
     @objc func getPeripheralState(notification: Notification) {
         guard let state = notification.userInfo?["state"] as? Bool else { return }
-        
+        print(state)
         if state {
             PeripheralInfo.currentDog = PeripheralInfo.currentMy
-            
+            PeripheralInfo.dogTime = Date()
+            let dateFormat = DateFormatter()
+            dateFormat.dateFormat = "dd일 hh시 mm분 ss초"
+            self.preTimeLabel.text = dateFormat.string(from: PeripheralInfo.dogTime!)
             alertButton.setImage(#imageLiteral(resourceName: "missingOff"), for: .normal)
         }
         else {
             alertButton.setImage(#imageLiteral(resourceName: "missingOn"), for: .normal)
         }
         if let currentDog = PeripheralInfo.currentDog {
-            getAddressFromLatLon(lat: (currentDog.mapPointGeo().latitude), lon: (currentDog.mapPointGeo().longitude))
+            //getAddressFromLatLon(lat: (currentDog.mapPointGeo().latitude), lon: (currentDog.mapPointGeo().longitude))
+            
+            //reversegeocode?query=126.655187004005,37.4506395233017
+            
+            AddressService.getAddressData(url: "reversegeocode?query=\(currentDog.mapPointGeo().longitude),\(currentDog.mapPointGeo().latitude)", parameter: nil, completion: { (response) in
+                switch response {
+                case .Success(let value):
+                    if let data = value as? Data {
+                        self.addressLabel.text =  String(data: data, encoding: String.Encoding.utf8)
+                    }
+                case .Failure(let errCode):
+                    print(errCode)
+                }
+            })
             self.mapView.add(poiItem(name: "복순이", location: currentDog, type: .dog))
         }
     }
@@ -66,7 +87,17 @@ class MapViewController: UIViewController {
     
     @IBAction func missingAction(_ sender: UIButton) {
         if PeripheralInfo.peripheral != nil {
-            PeripheralInfo.manager.cancelPeripheralConnection(PeripheralInfo.peripheral)
+            if PeripheralInfo.peripheral.state == .connecting || PeripheralInfo.peripheral.state == .connected {
+                PeripheralInfo.manager.cancelPeripheralConnection(PeripheralInfo.peripheral)
+                PeripheralInfo.flag = false
+                PeripheralInfo.currentDog = MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.451342470941, longitude: 126.655705185741))
+            }
+            
+            else {
+                PeripheralInfo.manager.scanForPeripherals(withServices: nil, options: nil)
+                PeripheralInfo.flag = true
+            }
+            
         }
     }
     
@@ -75,8 +106,6 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func moveToDog(_ sender: UIButton) {
-        
-        //        let center = MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.4506395233017, longitude: 126.655187004005))
         if let currentDog = PeripheralInfo.currentDog {
             self.mapView.setMapCenter(currentDog, zoomLevel: 0, animated: true)
         }
@@ -144,14 +173,9 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
     }
     
     func mapView(_ mapView: MTMapView!, longPressOn mapPoint: MTMapPoint!) {
-        if flag {
-            self.mapView.add(poiItem(name: "집", location: mapPoint, type: .home))
-            flag = false
-        }
-        else {
-            self.mapView.add(poiItem(name: "복순이", location: mapPoint, type: .dog))
-            flag = true
-        }
+        self.mapView.add(poiItem(name: "집", location: mapPoint, type: .home))
+        print(mapPoint.mapPointGeo().latitude )
+        print(mapPoint.mapPointGeo().longitude )
     }
     
     func getImage(image: UIImage, type: POIType) -> UIImage {
@@ -223,3 +247,5 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
         
     }
 }
+
+

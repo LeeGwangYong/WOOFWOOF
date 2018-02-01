@@ -14,6 +14,8 @@
 		FC2025CC20233838005773FB /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2025CB20233838005773FB /* IndicatorView.xib */; };
 		FC2025CE20233843005773FB /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2025CD20233843005773FB /* IndicatorView.swift */; };
 		FC202D6E20236643005773FB /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC202D6D20236643005773FB /* NotificationName.swift */; };
+		FC202D7220238E21005773FB /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC202D7120238E21005773FB /* APIService.swift */; };
+		FC202D7520238E7A005773FB /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC202D7420238E7A005773FB /* AddressService.swift */; };
 		FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */; };
 		FC206A9E2022A6D200FF0F45 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9D2022A6D200FF0F45 /* InstructionViewController.swift */; };
 		FC206AA12022A6D200FF0F45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC206A9F2022A6D200FF0F45 /* Main.storyboard */; };
@@ -299,8 +301,6 @@
 		FC206F162022A94100FF0F45 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F152022A94100FF0F45 /* libstdc++.6.tbd */; };
 		FC206F182022A94900FF0F45 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F172022A94900FF0F45 /* libxml2.tbd */; };
 		FC206F1A2022A95000FF0F45 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F192022A95000FF0F45 /* libsqlite3.tbd */; };
-		FC206F252022AAA500FF0F45 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F222022AA8B00FF0F45 /* Charts.framework */; };
-		FC206F262022AAA500FF0F45 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F222022AA8B00FF0F45 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC206F2E2022ACB700FF0F45 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F2D2022ACB700FF0F45 /* MapViewController.swift */; };
 		FC206F302022ACBE00FF0F45 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F2F2022ACBE00FF0F45 /* MainViewController.swift */; };
 		FC206F322022B92000FF0F45 /* TaCoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F312022B92000FF0F45 /* TaCoExtension.swift */; };
@@ -330,28 +330,7 @@
 			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
 			remoteInfo = ChartsTests;
 		};
-		FC206F272022AAA500FF0F45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FC206F1C2022AA8B00FF0F45 /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A58A4ED274A941CA248EA921;
-			remoteInfo = Charts;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		FC206F0C2022A8AE00FF0F45 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FC206F262022AAA500FF0F45 /* Charts.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		419B4A4D2722D04EB101359B /* Pods_WOOFWOOF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WOOFWOOF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -363,6 +342,8 @@
 		FC2025CB20233838005773FB /* IndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
 		FC2025CD20233843005773FB /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		FC202D6D20236643005773FB /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		FC202D7120238E21005773FB /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		FC202D7420238E7A005773FB /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; };
 		FC206A982022A6D200FF0F45 /* WOOFWOOF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOOFWOOF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC206A9D2022A6D200FF0F45 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
@@ -678,7 +659,6 @@
 				FC206F122022A92C00FF0F45 /* CoreLocation.framework in Frameworks */,
 				FC206F102022A92200FF0F45 /* SystemConfiguration.framework in Frameworks */,
 				FC206F0E2022A91800FF0F45 /* OpenGLES.framework in Frameworks */,
-				FC206F252022AAA500FF0F45 /* Charts.framework in Frameworks */,
 				FC206E162022A8A300FF0F45 /* DaumMap.framework in Frameworks */,
 				44259CBE4961CCE81722A775 /* Pods_WOOFWOOF.framework in Frameworks */,
 			);
@@ -712,6 +692,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FC202D7020238DD1005773FB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FC202D7120238E21005773FB /* APIService.swift */,
+				FC202D7420238E7A005773FB /* AddressService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		FC206A8F2022A6D200FF0F45 = {
 			isa = PBXGroup;
 			children = (
@@ -737,6 +726,7 @@
 				FC2025C9202336D9005773FB /* bluetooth.json */,
 				FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */,
 				FC206F3D2022DAC400FF0F45 /* Style */,
+				FC202D7020238DD1005773FB /* Network */,
 				FC206F352022BA3200FF0F45 /* Cell */,
 				FC206F2C2022AB9800FF0F45 /* Storyboard */,
 				FC206F2B2022AB8900FF0F45 /* Model */,
@@ -1161,12 +1151,10 @@
 				FC206A962022A6D200FF0F45 /* Resources */,
 				C9187441B489E4886ADEAC41 /* [CP] Embed Pods Frameworks */,
 				927E72067AD354DC00F08593 /* [CP] Copy Pods Resources */,
-				FC206F0C2022A8AE00FF0F45 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FC206F282022AAA500FF0F45 /* PBXTargetDependency */,
 			);
 			name = WOOFWOOF;
 			productName = WOOFWOOF;
@@ -1565,16 +1553,20 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WOOFWOOF/Pods-WOOFWOOF-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KDCircularProgress/KDCircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDCircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1589,9 +1581,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC202D7220238E21005773FB /* APIService.swift in Sources */,
 				FC206F452022DDDE00FF0F45 /* PopUpView.swift in Sources */,
 				FC206F342022BA1600FF0F45 /* Reusable.swift in Sources */,
 				FC206F3B2022CD5000FF0F45 /* Designable.swift in Sources */,
+				FC202D7520238E7A005773FB /* AddressService.swift in Sources */,
 				FC206F382022BB9900FF0F45 /* InstructionCollectionViewCell.swift in Sources */,
 				FC2025CE20233843005773FB /* IndicatorView.swift in Sources */,
 				FC2025C520231E17005773FB /* Plan.swift in Sources */,
@@ -1609,14 +1603,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FC206F282022AAA500FF0F45 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Charts;
-			targetProxy = FC206F272022AAA500FF0F45 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FC206A9F2022A6D200FF0F45 /* Main.storyboard */ = {
@@ -1753,7 +1739,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8736516750314287D0655964 /* Pods-WOOFWOOF.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EPWV8KDDJE;
@@ -1774,7 +1759,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75A1ABCE19606454B9510E82 /* Pods-WOOFWOOF.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EPWV8KDDJE;

@@ -10,6 +10,7 @@ import UIKit
 import Realm
 import RealmSwift
 import CoreBluetooth
+import UserNotifications
 
 
 struct PeripheralInfo{
@@ -26,6 +27,9 @@ struct PeripheralInfo{
     
     static var currentMy:MTMapPoint?
     static var currentDog:MTMapPoint?
+    static var dogTime: Date?
+    
+    static var flag = true
 }
 
 
@@ -50,8 +54,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tababarController.selectedIndex = 1
         }
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { granted, error in
+            // handle error if there is one
+        })
+        UNUserNotificationCenter.current().delegate = self
+        
         setUpDatabase()
         setUpBluetooth()
+        NotificationCenter.default.post(name: .peripheralState, object: nil, userInfo: ["state" : false])
         
         return true
     }
@@ -84,6 +94,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Plan.write(title: "standOff", name: "일어서", image: #imageLiteral(resourceName: "standMain"))
             Plan.write(title: "rollOff", name: "굴러", image: #imageLiteral(resourceName: "rollMain"))
         }
+    }
+    
+    func setUpNotification() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
+        { (success, error) in
+            if success {
+                print("Permission Granted")
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+        
+        let actionOK = UNNotificationAction(identifier: "actionOK", title: "확인", options: [.foreground])
+        let actionCancel = UNNotificationAction(identifier: "actionCancel", title: "취소", options: [.foreground])
+        let category = UNNotificationCategory(identifier: "category", actions: [actionOK, actionCancel], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -142,7 +168,6 @@ extension AppDelegate: CBCentralManagerDelegate, CBPeripheralDelegate {
         print("Peripheral Name : \(advertisementData[CBAdvertisementDataLocalNameKey]) \(i)")
         i = i + 1
         
-        NotificationCenter.default.post(name: .peripheralState, object: nil, userInfo: ["state" : false])
         if device?.contains(PeripheralInfo.name) == true {
             PeripheralInfo.manager.stopScan()
             PeripheralInfo.peripheral = peripheral
@@ -196,11 +221,46 @@ extension AppDelegate: CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        let content = UNMutableNotificationContent()
+        content.title = "🔥 비상! 비상! 🔥"
+        content.subtitle = "'복순이'의 위치가 감지되지않습니다."
+        content.body = """
+'복순이'가 세이프존을 이탈하였습니다.
+"""
+        content.categoryIdentifier = "category"
+        content.sound = UNNotificationSound.default()
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "notification", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { (error) in
+        }
         
         NotificationCenter.default.post(name: .peripheralState, object: nil, userInfo: ["state" : false])
-        central.scanForPeripherals(withServices: nil, options: nil)
+        
+        if PeripheralInfo.flag {
+            central.scanForPeripherals(withServices: nil, options: nil)
+        }
+        
     }
 }
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case "actionOK":
+            print("Action alert_ok")
+        case "actionCancel":
+            print("Action alert_ok")
+        default:
+            break
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+}
+
+
 
 
 

@@ -230,10 +230,17 @@
                                                     <action selector="missingAction:" destination="1d2-c9-Y06" eventType="touchUpInside" id="Ivl-HA-u3d"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1시 31분 22초" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXA-Sf-RGE">
+                                                <rect key="frame" x="242" y="65.5" width="71.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.91362601518630981" green="0.91378277540206909" blue="0.91361618041992188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z4K-xE-s7m" secondAttribute="trailing" constant="20" symbolic="YES" id="1Mj-Bx-kfP"/>
+                                            <constraint firstAttribute="trailing" secondItem="kXA-Sf-RGE" secondAttribute="trailing" constant="24" id="6ON-sw-id0"/>
                                             <constraint firstItem="Z4K-xE-s7m" firstAttribute="leading" secondItem="kKV-Sg-mLm" secondAttribute="trailing" constant="10" id="9Y9-4O-9zD"/>
                                             <constraint firstAttribute="height" constant="100" id="A4A-gV-aSJ"/>
                                             <constraint firstItem="kKV-Sg-mLm" firstAttribute="leading" secondItem="BTr-E8-Vjv" secondAttribute="leading" constant="24" id="AtG-4T-WfF"/>
@@ -242,8 +249,10 @@
                                             <constraint firstItem="pQy-dW-hdA" firstAttribute="top" secondItem="BTr-E8-Vjv" secondAttribute="top" id="MyU-4E-zvG"/>
                                             <constraint firstAttribute="trailing" secondItem="pQy-dW-hdA" secondAttribute="trailing" id="P6W-du-z2P"/>
                                             <constraint firstItem="tMU-L2-Q0V" firstAttribute="leading" secondItem="Z4K-xE-s7m" secondAttribute="leading" id="U8B-mr-vP8"/>
+                                            <constraint firstItem="kXA-Sf-RGE" firstAttribute="bottom" secondItem="kKV-Sg-mLm" secondAttribute="bottom" id="gac-xk-79b"/>
                                             <constraint firstItem="tMU-L2-Q0V" firstAttribute="top" secondItem="Z4K-xE-s7m" secondAttribute="bottom" constant="10" id="gqi-e0-ZfW"/>
                                             <constraint firstItem="kKV-Sg-mLm" firstAttribute="height" secondItem="BTr-E8-Vjv" secondAttribute="height" multiplier="0.6" id="l4q-AM-gy7"/>
+                                            <constraint firstItem="kXA-Sf-RGE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tMU-L2-Q0V" secondAttribute="trailing" constant="10" id="lRl-DX-xNg"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
@@ -285,6 +294,7 @@
                         <outlet property="addressLabel" destination="tMU-L2-Q0V" id="crA-ws-jk9"/>
                         <outlet property="alertButton" destination="pQy-dW-hdA" id="GPh-qC-4x2"/>
                         <outlet property="mapAreaView" destination="KgD-6s-Bzw" id="iZX-rz-FrL"/>
+                        <outlet property="preTimeLabel" destination="kXA-Sf-RGE" id="qqo-eW-dcE"/>
                         <outlet property="profileImage" destination="kKV-Sg-mLm" id="z0D-F8-6Yh"/>
                         <outlet property="timeLabel" destination="tMU-L2-Q0V" id="265-Cd-FYt"/>
                     </connections>
@@ -355,19 +365,19 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 계획" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZs-m8-rEJ">
-                                <rect key="frame" x="0.0" y="164" width="375" height="33.5"/>
+                                <rect key="frame" x="0.0" y="174" width="375" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘은 무엇을 배워볼까요?  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8y-XK-Cux">
-                                <rect key="frame" x="0.0" y="210.5" width="375" height="25.5"/>
+                                <rect key="frame" x="0.0" y="220.5" width="375" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mH7-wZ-GaP">
-                                <rect key="frame" x="37.5" y="236" width="300" height="362"/>
+                                <rect key="frame" x="37.5" y="246" width="300" height="352"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nvZ-eX-2pL">
                                     <size key="itemSize" width="50" height="50"/>
@@ -396,7 +406,7 @@
                             <constraint firstItem="mH7-wZ-GaP" firstAttribute="top" secondItem="T8y-XK-Cux" secondAttribute="bottom" id="LHr-DY-cUV"/>
                             <constraint firstItem="gMq-Jf-3PG" firstAttribute="top" secondItem="fXO-BK-7NL" secondAttribute="top" id="Omp-rW-OUL"/>
                             <constraint firstItem="fXO-BK-7NL" firstAttribute="trailing" secondItem="gMq-Jf-3PG" secondAttribute="trailing" id="P9N-SW-Qll"/>
-                            <constraint firstItem="HZs-m8-rEJ" firstAttribute="top" secondItem="gMq-Jf-3PG" secondAttribute="bottom" constant="10" id="Siw-Yw-ZQk"/>
+                            <constraint firstItem="HZs-m8-rEJ" firstAttribute="top" secondItem="gMq-Jf-3PG" secondAttribute="bottom" constant="20" id="Siw-Yw-ZQk"/>
                             <constraint firstItem="mH7-wZ-GaP" firstAttribute="width" secondItem="Rau-Qy-03F" secondAttribute="width" multiplier="0.8" id="XPG-AY-wXq"/>
                             <constraint firstItem="fXO-BK-7NL" firstAttribute="bottom" secondItem="mH7-wZ-GaP" secondAttribute="bottom" constant="20" id="chD-gL-eFS"/>
                             <constraint firstItem="T8y-XK-Cux" firstAttribute="top" secondItem="HZs-m8-rEJ" secondAttribute="bottom" constant="13" id="e8u-r9-aCf"/>
