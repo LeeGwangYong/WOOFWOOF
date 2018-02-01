@@ -192,6 +192,9 @@
                                             <constraint firstAttribute="width" constant="45" id="cCw-m6-34u"/>
                                         </constraints>
                                         <state key="normal" image="dog"/>
+                                        <connections>
+                                            <action selector="moveToDog:" destination="1d2-c9-Y06" eventType="touchUpInside" id="dhz-co-xSM"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTr-E8-Vjv">
                                         <rect key="frame" x="19" y="10" width="337.5" height="100"/>
@@ -219,6 +222,14 @@
                                                 <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQy-dW-hdA">
+                                                <rect key="frame" x="280.5" y="0.0" width="57" height="52"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="14" maxX="24" maxY="10"/>
+                                                <state key="normal" image="missingOff"/>
+                                                <connections>
+                                                    <action selector="missingAction:" destination="1d2-c9-Y06" eventType="touchUpInside" id="Ivl-HA-u3d"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.91362601518630981" green="0.91378277540206909" blue="0.91361618041992188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -228,6 +239,8 @@
                                             <constraint firstItem="kKV-Sg-mLm" firstAttribute="leading" secondItem="BTr-E8-Vjv" secondAttribute="leading" constant="24" id="AtG-4T-WfF"/>
                                             <constraint firstItem="Z4K-xE-s7m" firstAttribute="top" secondItem="kKV-Sg-mLm" secondAttribute="top" id="FjN-GV-v0E"/>
                                             <constraint firstItem="kKV-Sg-mLm" firstAttribute="centerY" secondItem="BTr-E8-Vjv" secondAttribute="centerY" id="Jhh-am-Dax"/>
+                                            <constraint firstItem="pQy-dW-hdA" firstAttribute="top" secondItem="BTr-E8-Vjv" secondAttribute="top" id="MyU-4E-zvG"/>
+                                            <constraint firstAttribute="trailing" secondItem="pQy-dW-hdA" secondAttribute="trailing" id="P6W-du-z2P"/>
                                             <constraint firstItem="tMU-L2-Q0V" firstAttribute="leading" secondItem="Z4K-xE-s7m" secondAttribute="leading" id="U8B-mr-vP8"/>
                                             <constraint firstItem="tMU-L2-Q0V" firstAttribute="top" secondItem="Z4K-xE-s7m" secondAttribute="bottom" constant="10" id="gqi-e0-ZfW"/>
                                             <constraint firstItem="kKV-Sg-mLm" firstAttribute="height" secondItem="BTr-E8-Vjv" secondAttribute="height" multiplier="0.6" id="l4q-AM-gy7"/>
@@ -270,6 +283,7 @@
                     <navigationItem key="navigationItem" title="위치" id="Njc-AQ-ZAj"/>
                     <connections>
                         <outlet property="addressLabel" destination="tMU-L2-Q0V" id="crA-ws-jk9"/>
+                        <outlet property="alertButton" destination="pQy-dW-hdA" id="GPh-qC-4x2"/>
                         <outlet property="mapAreaView" destination="KgD-6s-Bzw" id="iZX-rz-FrL"/>
                         <outlet property="profileImage" destination="kKV-Sg-mLm" id="z0D-F8-6Yh"/>
                         <outlet property="timeLabel" destination="tMU-L2-Q0V" id="265-Cd-FYt"/>
@@ -487,6 +501,7 @@
         <image name="coffiicon" width="40" height="29"/>
         <image name="dog" width="43" height="43"/>
         <image name="lofficon" width="26" height="32"/>
+        <image name="missingOff" width="23" height="28"/>
         <image name="my" width="43" height="43"/>
         <image name="rofficon" width="40" height="46"/>
     </resources>

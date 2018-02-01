@@ -9,4 +9,5 @@
 import Foundation
 extension Notification.Name {
     static let rssi = Notification.Name("RSSI")
+    static let peripheralState = Notification.Name("PeripheralState")
 }

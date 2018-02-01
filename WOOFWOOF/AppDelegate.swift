@@ -13,7 +13,7 @@ import CoreBluetooth
 
 
 struct PeripheralInfo{
-    static let name = "WOOF"
+    static let name = "WF2"
     static let service_UUID =
         CBUUID(string: "FFE0")
     static let characteristic_UUID =
@@ -23,6 +23,9 @@ struct PeripheralInfo{
     static var manager:CBCentralManager! 
     static var peripheral:CBPeripheral!
     static var character: CBCharacteristic?
+    
+    static var currentMy:MTMapPoint?
+    static var currentDog:MTMapPoint?
 }
 
 
@@ -50,9 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setUpDatabase()
         setUpBluetooth()
         
-        
         return true
-        
     }
     
     func setUpDatabase() {
@@ -140,6 +141,8 @@ extension AppDelegate: CBCentralManagerDelegate, CBPeripheralDelegate {
         
         print("Peripheral Name : \(advertisementData[CBAdvertisementDataLocalNameKey]) \(i)")
         i = i + 1
+        
+        NotificationCenter.default.post(name: .peripheralState, object: nil, userInfo: ["state" : false])
         if device?.contains(PeripheralInfo.name) == true {
             PeripheralInfo.manager.stopScan()
             PeripheralInfo.peripheral = peripheral
@@ -189,26 +192,14 @@ extension AppDelegate: CBCentralManagerDelegate, CBPeripheralDelegate {
         //백그라운드에서 받는 게 가능할까?
         
         PeripheralInfo.peripheral.readRSSI()
-        print(characteristic.uuid)
-        //        var count:UInt8 = 1
-        //        //notification에 설정된 characteristic이 update될 때, 해당 delegate method 실행
-        //        if characteristic.uuid == PeripheralInfo.scratch_UUID {
-        //            if let data = characteristic.value {
-        //                data.copyBytes(to: &count, count: MemoryLayout<UInt8>.size)
-        //                print(count)
-        //            }
-        //        }
-        
-        //        self.peripheral.readRSSI()
+        NotificationCenter.default.post(name: .peripheralState, object: nil, userInfo: ["state" : true])
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        //if disconnect peripheral, reconnect peripheral
+        
+        NotificationCenter.default.post(name: .peripheralState, object: nil, userInfo: ["state" : false])
         central.scanForPeripherals(withServices: nil, options: nil)
     }
-    
-    
-    
 }
 
 

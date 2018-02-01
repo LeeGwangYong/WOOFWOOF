@@ -21,9 +21,10 @@ class MapViewController: UIViewController {
     lazy var mapView: MTMapView = MTMapView(frame:
         CGRect(x: 0, y: 0, width: self.mapAreaView.frame.size.width, height: self.mapAreaView.frame.size.height))
     let locationManager = CLLocationManager()
-    var currentLocation: MTMapPoint?
+    
     @IBOutlet var profileImage: RoundedImageView!
     @IBOutlet var addressLabel: UILabel!
+    @IBOutlet var alertButton: UIButton!
     
     var date: Date?
     
@@ -33,10 +34,27 @@ class MapViewController: UIViewController {
         self.profileImage.image = Profile.getProfile()
         self.setUpMap()
         NotificationCenter.default.addObserver(self, selector: #selector(getRSSI(rssi:)), name: .rssi, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(getPeripheralState(notification:)), name: .peripheralState, object: nil)
     }
+    
     @objc func getRSSI(rssi: NSNumber) {
-        print("Map : \(rssi)")
+    }
+    
+    @objc func getPeripheralState(notification: Notification) {
+        guard let state = notification.userInfo?["state"] as? Bool else { return }
+        
+        if state {
+            PeripheralInfo.currentDog = PeripheralInfo.currentMy
+            
+            alertButton.setImage(#imageLiteral(resourceName: "missingOff"), for: .normal)
+        }
+        else {
+            alertButton.setImage(#imageLiteral(resourceName: "missingOn"), for: .normal)
+        }
+        if let currentDog = PeripheralInfo.currentDog {
+            getAddressFromLatLon(lat: (currentDog.mapPointGeo().latitude), lon: (currentDog.mapPointGeo().longitude))
+            self.mapView.add(poiItem(name: "복순이", location: currentDog, type: .dog))
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +64,23 @@ class MapViewController: UIViewController {
         }
     }
     
+    @IBAction func missingAction(_ sender: UIButton) {
+        if PeripheralInfo.peripheral != nil {
+            PeripheralInfo.manager.cancelPeripheralConnection(PeripheralInfo.peripheral)
+        }
+    }
+    
+    @IBAction func moveToCurrent(_ sender: UIButton) {
+        self.mapView.setMapCenter(PeripheralInfo.currentMy, zoomLevel: 0, animated: true)
+    }
+    
+    @IBAction func moveToDog(_ sender: UIButton) {
+        
+        //        let center = MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.4506395233017, longitude: 126.655187004005))
+        if let currentDog = PeripheralInfo.currentDog {
+            self.mapView.setMapCenter(currentDog, zoomLevel: 0, animated: true)
+        }
+    }
 }
 
 //MARK -: Extension
@@ -74,8 +109,7 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
     }
     
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-        self.currentLocation = location
-        getAddressFromLatLon(lat: location.mapPointGeo().latitude, lon: location.mapPointGeo().longitude)
+        PeripheralInfo.currentMy = location
     }
     
     func removePOIFromTag(type: POIType) {
@@ -98,8 +132,6 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
         case .dog:
             poiItem.tag = POIType.dog.rawValue
             poiItem.customImage = getPinImage(topImage: Profile.getProfile().circleMasked!)
-            //            37.4506395233017
-            //            126.655187004005
             poiItem.customImageAnchorPointOffset = .init(offsetX: Int32(poiItem.customImage.size.width / 2) , offsetY: 0)
         case .home:
             poiItem.tag = POIType.home.rawValue
@@ -110,12 +142,6 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
         }
         return poiItem
     }
-    
-    
-    @IBAction func moveToCurrent(_ sender: UIButton) {
-        self.mapView.setMapCenter(currentLocation, zoomLevel: 0, animated: true)
-    }
-    
     
     func mapView(_ mapView: MTMapView!, longPressOn mapPoint: MTMapPoint!) {
         if flag {
@@ -174,23 +200,24 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
                 {
                     print("reverse geodcode fail: \(error!.localizedDescription)")
                 }
-                let pm = placemarks! as [CLPlacemark]
-                
-                if pm.count > 0 {
-                    let pm = placemarks![0]
-                    var addressString : String = ""
+                if let pm = placemarks {
                     
-                    if pm.administrativeArea != nil {
-                        addressString = addressString + pm.administrativeArea! + " "
+                    if pm.count > 0 {
+                        let pm = placemarks![0]
+                        var addressString : String = ""
+                        
+                        if pm.administrativeArea != nil {
+                            addressString = addressString + pm.administrativeArea! + " "
+                        }
+                        if pm.locality != nil {
+                            addressString = addressString + pm.locality! + " "
+                        }
+                        
+                        if pm.subLocality != nil {
+                            addressString = addressString + pm.subLocality!
+                        }
+                        self.addressLabel.text = addressString
                     }
-                    if pm.locality != nil {
-                        addressString = addressString + pm.locality! + " "
-                    }
-                    
-                    if pm.subLocality != nil {
-                        addressString = addressString + pm.subLocality!
-                    }
-                    self.addressLabel.text = addressString
                 }
         })
         
