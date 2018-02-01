@@ -7,15 +7,31 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if let realmURL = Realm.Configuration.defaultConfiguration.fileURL {
+            print(realmURL.absoluteString)
+//                        do {
+//                            try FileManager().removeItem(at: realmURL)
+//                        }
+//                        catch {
+//                            fatalError("Couldn't remove Realm DB")
+//                        }
+        }
+        
+        if self.window!.rootViewController as? UITabBarController != nil {
+            var tababarController = self.window!.rootViewController as! UITabBarController
+            tababarController.selectedIndex = 1
+        }
+        
         return true
     }
 

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		44259CBE4961CCE81722A775 /* Pods_WOOFWOOF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419B4A4D2722D04EB101359B /* Pods_WOOFWOOF.framework */; };
 		FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */; };
-		FC206A9E2022A6D200FF0F45 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9D2022A6D200FF0F45 /* MainViewController.swift */; };
+		FC206A9E2022A6D200FF0F45 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206A9D2022A6D200FF0F45 /* InstructionViewController.swift */; };
 		FC206AA12022A6D200FF0F45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC206A9F2022A6D200FF0F45 /* Main.storyboard */; };
 		FC206AA32022A6D200FF0F45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC206AA22022A6D200FF0F45 /* Assets.xcassets */; };
 		FC206AA62022A6D200FF0F45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC206AA42022A6D200FF0F45 /* LaunchScreen.storyboard */; };
@@ -296,7 +296,17 @@
 		FC206F252022AAA500FF0F45 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F222022AA8B00FF0F45 /* Charts.framework */; };
 		FC206F262022AAA500FF0F45 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F222022AA8B00FF0F45 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC206F2E2022ACB700FF0F45 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F2D2022ACB700FF0F45 /* MapViewController.swift */; };
-		FC206F302022ACBE00FF0F45 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F2F2022ACBE00FF0F45 /* ChartViewController.swift */; };
+		FC206F302022ACBE00FF0F45 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F2F2022ACBE00FF0F45 /* MainViewController.swift */; };
+		FC206F322022B92000FF0F45 /* TaCoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F312022B92000FF0F45 /* TaCoExtension.swift */; };
+		FC206F342022BA1600FF0F45 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F332022BA1600FF0F45 /* Reusable.swift */; };
+		FC206F382022BB9900FF0F45 /* InstructionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F362022BB9900FF0F45 /* InstructionCollectionViewCell.swift */; };
+		FC206F392022BB9900FF0F45 /* InstructionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC206F372022BB9900FF0F45 /* InstructionCollectionViewCell.xib */; };
+		FC206F3B2022CD5000FF0F45 /* Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F3A2022CD5000FF0F45 /* Designable.swift */; };
+		FC206F3F2022DAD400FF0F45 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F3E2022DAD400FF0F45 /* RoundedImageView.swift */; };
+		FC206F412022DC1900FF0F45 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F402022DC1900FF0F45 /* Instruction.swift */; };
+		FC206F432022DDC800FF0F45 /* PopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC206F422022DDC800FF0F45 /* PopUpView.xib */; };
+		FC206F452022DDDE00FF0F45 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F442022DDDE00FF0F45 /* PopUpView.swift */; };
+		FC206F472023098F00FF0F45 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F462023098F00FF0F45 /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,7 +353,7 @@
 		8736516750314287D0655964 /* Pods-WOOFWOOF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WOOFWOOF.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WOOFWOOF/Pods-WOOFWOOF.debug.xcconfig"; sourceTree = "<group>"; };
 		FC206A982022A6D200FF0F45 /* WOOFWOOF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOOFWOOF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC206A9D2022A6D200FF0F45 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FC206A9D2022A6D200FF0F45 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		FC206AA02022A6D200FF0F45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC206AA22022A6D200FF0F45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC206AA52022A6D200FF0F45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -631,7 +641,17 @@
 		FC206F1B2022A9C300FF0F45 /* DaumMap_Briding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaumMap_Briding.h; sourceTree = "<group>"; };
 		FC206F1C2022AA8B00FF0F45 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../Initialize Project/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		FC206F2D2022ACB700FF0F45 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		FC206F2F2022ACBE00FF0F45 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		FC206F2F2022ACBE00FF0F45 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FC206F312022B92000FF0F45 /* TaCoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaCoExtension.swift; sourceTree = "<group>"; };
+		FC206F332022BA1600FF0F45 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		FC206F362022BB9900FF0F45 /* InstructionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionCollectionViewCell.swift; sourceTree = "<group>"; };
+		FC206F372022BB9900FF0F45 /* InstructionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionCollectionViewCell.xib; sourceTree = "<group>"; };
+		FC206F3A2022CD5000FF0F45 /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
+		FC206F3E2022DAD400FF0F45 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		FC206F402022DC1900FF0F45 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
+		FC206F422022DDC800FF0F45 /* PopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpView.xib; sourceTree = "<group>"; };
+		FC206F442022DDDE00FF0F45 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		FC206F462023098F00FF0F45 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -703,6 +723,8 @@
 			isa = PBXGroup;
 			children = (
 				FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */,
+				FC206F3D2022DAC400FF0F45 /* Style */,
+				FC206F352022BA3200FF0F45 /* Cell */,
 				FC206F2C2022AB9800FF0F45 /* Storyboard */,
 				FC206F2B2022AB8900FF0F45 /* Model */,
 				FC206F2A2022AB8200FF0F45 /* Extension */,
@@ -1054,9 +1076,9 @@
 		FC206F292022AB7B00FF0F45 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FC206A9D2022A6D200FF0F45 /* MainViewController.swift */,
+				FC206A9D2022A6D200FF0F45 /* InstructionViewController.swift */,
 				FC206F2D2022ACB700FF0F45 /* MapViewController.swift */,
-				FC206F2F2022ACBE00FF0F45 /* ChartViewController.swift */,
+				FC206F2F2022ACBE00FF0F45 /* MainViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1064,6 +1086,10 @@
 		FC206F2A2022AB8200FF0F45 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FC206F312022B92000FF0F45 /* TaCoExtension.swift */,
+				FC206F332022BA1600FF0F45 /* Reusable.swift */,
+				FC206F3A2022CD5000FF0F45 /* Designable.swift */,
+				FC206F462023098F00FF0F45 /* CircleImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1071,6 +1097,7 @@
 		FC206F2B2022AB8900FF0F45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FC206F402022DC1900FF0F45 /* Instruction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1082,6 +1109,25 @@
 				FC206A9F2022A6D200FF0F45 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		FC206F352022BA3200FF0F45 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FC206F362022BB9900FF0F45 /* InstructionCollectionViewCell.swift */,
+				FC206F372022BB9900FF0F45 /* InstructionCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FC206F3D2022DAC400FF0F45 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				FC206F3E2022DAD400FF0F45 /* RoundedImageView.swift */,
+				FC206F422022DDC800FF0F45 /* PopUpView.xib */,
+				FC206F442022DDDE00FF0F45 /* PopUpView.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1293,6 +1339,7 @@
 				FC206EE62022A8A400FF0F45 /* struct_m_t_map_point_plain.js in Resources */,
 				FC206EF52022A8A400FF0F45 /* globals_defs.html in Resources */,
 				FC206E0B2022A8A300FF0F45 /* point_sprite.png in Resources */,
+				FC206F392022BB9900FF0F45 /* InstructionCollectionViewCell.xib in Resources */,
 				FC206E032022A8A300FF0F45 /* copyright.png in Resources */,
 				FC206EA92022A8A400FF0F45 /* files_0.js in Resources */,
 				FC206E0D2022A8A300FF0F45 /* info_box_tail.png in Resources */,
@@ -1320,6 +1367,7 @@
 				FC206E222022A8A400FF0F45 /* struct_m_t_map_bounds.js in Resources */,
 				FC206E682022A8A400FF0F45 /* all_c.html in Resources */,
 				FC206EF92022A8A400FF0F45 /* struct_m_t_map_bounds.html in Resources */,
+				FC206F432022DDC800FF0F45 /* PopUpView.xib in Resources */,
 				FC206E432022A8A400FF0F45 /* tabs.css in Resources */,
 				FC206E322022A8A400FF0F45 /* sync_on.png in Resources */,
 				FC206EB32022A8A400FF0F45 /* variables_1.js in Resources */,
@@ -1521,10 +1569,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC206A9E2022A6D200FF0F45 /* MainViewController.swift in Sources */,
-				FC206F302022ACBE00FF0F45 /* ChartViewController.swift in Sources */,
+				FC206F452022DDDE00FF0F45 /* PopUpView.swift in Sources */,
+				FC206F342022BA1600FF0F45 /* Reusable.swift in Sources */,
+				FC206F3B2022CD5000FF0F45 /* Designable.swift in Sources */,
+				FC206F382022BB9900FF0F45 /* InstructionCollectionViewCell.swift in Sources */,
+				FC206A9E2022A6D200FF0F45 /* InstructionViewController.swift in Sources */,
+				FC206F472023098F00FF0F45 /* CircleImage.swift in Sources */,
+				FC206F302022ACBE00FF0F45 /* MainViewController.swift in Sources */,
 				FC206F2E2022ACB700FF0F45 /* MapViewController.swift in Sources */,
 				FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */,
+				FC206F322022B92000FF0F45 /* TaCoExtension.swift in Sources */,
+				FC206F412022DC1900FF0F45 /* Instruction.swift in Sources */,
+				FC206F3F2022DAD400FF0F45 /* RoundedImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1590,6 +1646,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1648,6 +1705,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

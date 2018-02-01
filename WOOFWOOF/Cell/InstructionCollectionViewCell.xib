@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InstructionCollectionViewCell" id="gTV-IL-0wX" customClass="InstructionCollectionViewCell" customModule="WOOFWOOF" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="184" height="249"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="184" height="249"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sitOn" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-pC-hk5">
+                        <rect key="frame" x="30" y="62.5" width="124.5" height="124.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="xxQ-pC-hk5" secondAttribute="height" multiplier="1:1" id="Fqa-O6-MWU"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앉아" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYU-Lg-qFo">
+                        <rect key="frame" x="30" y="192" width="124.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="xxQ-pC-hk5" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="1ME-Bg-pmu"/>
+                <constraint firstItem="XYU-Lg-qFo" firstAttribute="width" secondItem="xxQ-pC-hk5" secondAttribute="width" id="3Xm-KG-gqS"/>
+                <constraint firstItem="XYU-Lg-qFo" firstAttribute="centerX" secondItem="xxQ-pC-hk5" secondAttribute="centerX" id="7vX-zq-Ev2"/>
+                <constraint firstItem="XYU-Lg-qFo" firstAttribute="top" secondItem="xxQ-pC-hk5" secondAttribute="bottom" constant="5" id="DGw-hl-puw"/>
+                <constraint firstItem="xxQ-pC-hk5" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="V1o-BL-2y9"/>
+                <constraint firstItem="xxQ-pC-hk5" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.5" id="mRt-HP-Ja4"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="184" height="249"/>
+            <connections>
+                <outlet property="nameLabel" destination="XYU-Lg-qFo" id="p4w-B6-tXr"/>
+                <outlet property="thumbnail" destination="xxQ-pC-hk5" id="llv-cd-RYt"/>
+            </connections>
+            <point key="canvasLocation" x="101" y="153.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="sitOn" width="73" height="73"/>
+    </resources>
+</document>
