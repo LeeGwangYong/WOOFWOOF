@@ -9,10 +9,29 @@
 import UIKit
 import Realm
 import RealmSwift
+import CoreBluetooth
+
+
+struct PeripheralInfo{
+    static let name = "WOOF"
+    static let service_UUID =
+        CBUUID(string: "FFE0")
+    static let characteristic_UUID =
+        CBUUID(string: "FFE1")
+    static var currentRSSI:NSNumber = 0
+    
+    static var manager:CBCentralManager! 
+    static var peripheral:CBPeripheral!
+    static var character: CBCharacteristic?
+    
+}
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -32,6 +51,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tababarController.selectedIndex = 1
         }
         
+        setUpDatabase()
+        
+        
+        return true
+        
+    }
+    
+    func setUpDatabase() {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore  {
             print("Not first launch.")
@@ -59,12 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Plan.write(title: "standOff", name: "일어서", image: #imageLiteral(resourceName: "standMain"))
             Plan.write(title: "rollOff", name: "굴러", image: #imageLiteral(resourceName: "rollMain"))
         }
-        
-        return true
-        
     }
-    
-    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

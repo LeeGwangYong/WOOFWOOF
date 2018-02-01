@@ -213,8 +213,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="101 공릉신성미소지움APT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMU-L2-Q0V">
-                                                <rect key="frame" x="94" y="54" width="149" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMU-L2-Q0V">
+                                                <rect key="frame" x="94" y="54" width="52.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -269,6 +269,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="위치" id="Njc-AQ-ZAj"/>
                     <connections>
+                        <outlet property="addressLabel" destination="tMU-L2-Q0V" id="crA-ws-jk9"/>
                         <outlet property="mapAreaView" destination="KgD-6s-Bzw" id="iZX-rz-FrL"/>
                         <outlet property="profileImage" destination="kKV-Sg-mLm" id="z0D-F8-6Yh"/>
                         <outlet property="timeLabel" destination="tMU-L2-Q0V" id="265-Cd-FYt"/>

@@ -15,7 +15,7 @@ enum POIType: Int {
 
 class MapViewController: UIViewController {
     var flag = false
-//MARK -: Property
+    //MARK -: Property
     @IBOutlet var mapAreaView: UIView!
     @IBOutlet var timeLabel: UILabel!
     lazy var mapView: MTMapView = MTMapView(frame:
@@ -23,6 +23,8 @@ class MapViewController: UIViewController {
     let locationManager = CLLocationManager()
     var currentLocation: MTMapPoint?
     @IBOutlet var profileImage: RoundedImageView!
+    @IBOutlet var addressLabel: UILabel!
+    
     var date: Date?
     
     //MARK -: Method
@@ -42,7 +44,7 @@ class MapViewController: UIViewController {
                 , zoomLevel: 0, animated: true)
         }
     }
-
+    
 }
 
 //MARK -: Extension
@@ -72,6 +74,7 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
     
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
         self.currentLocation = location
+        getAddressFromLatLon(lat: location.mapPointGeo().latitude, lon: location.mapPointGeo().longitude)
     }
     
     func removePOIFromTag(type: POIType) {
@@ -94,8 +97,8 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
         case .dog:
             poiItem.tag = POIType.dog.rawValue
             poiItem.customImage = getPinImage(topImage: Profile.getProfile().circleMasked!)
-//            37.4506395233017
-//            126.655187004005
+            //            37.4506395233017
+            //            126.655187004005
             poiItem.customImageAnchorPointOffset = .init(offsetX: Int32(poiItem.customImage.size.width / 2) , offsetY: 0)
         case .home:
             poiItem.tag = POIType.home.rawValue
@@ -152,5 +155,43 @@ extension MapViewController: MTMapViewDelegate, CLLocationManagerDelegate {
         UIGraphicsEndImageContext()
         
         return newImage
+    }
+    
+    func getAddressFromLatLon(lat: Double, lon: Double) {
+        var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
+        
+        let ceo: CLGeocoder = CLGeocoder()
+        center.latitude = lat
+        center.longitude = lon
+        
+        let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+        
+        
+        ceo.reverseGeocodeLocation(loc, completionHandler:
+            {(placemarks, error) in
+                if (error != nil)
+                {
+                    print("reverse geodcode fail: \(error!.localizedDescription)")
+                }
+                let pm = placemarks! as [CLPlacemark]
+                
+                if pm.count > 0 {
+                    let pm = placemarks![0]
+                    var addressString : String = ""
+                    
+                    if pm.administrativeArea != nil {
+                        addressString = addressString + pm.administrativeArea! + " "
+                    }
+                    if pm.locality != nil {
+                        addressString = addressString + pm.locality! + " "
+                    }
+                    
+                    if pm.subLocality != nil {
+                        addressString = addressString + pm.subLocality!
+                    }
+                    self.addressLabel.text = addressString
+                }
+        })
+        
     }
 }

@@ -11,14 +11,14 @@ import CoreBluetooth
 import Realm
 import RealmSwift
 
-struct PeripheralInfo{
-    static let name = "WOOF"
-    static let service_UUID =
-        CBUUID(string: "FFE0")
-    static let characteristic_UUID =
-        CBUUID(string: "FFE1")
-    static var currentRSSI:NSNumber = 0
-}
+//struct PeripheralInfo{
+//    static let name = "WOOF"
+//    static let service_UUID =
+//        CBUUID(string: "FFE0")
+//    static let characteristic_UUID =
+//        CBUUID(string: "FFE1")
+//    static var currentRSSI:NSNumber = 0
+//}
 
 
 class InstructionViewController: UIViewController {
@@ -94,9 +94,15 @@ extension InstructionViewController: UICollectionViewDelegate, UICollectionViewD
         if indexPath.row < 3 {
             let value: UInt8 = UInt8(exactly: instructionArray[indexPath.row].value)!
             let data = Data(bytes: [value])
-            if let character = self.character {
-                peripheral.writeValue(data, for: character, type: .withoutResponse)
+            if peripheral != nil {
+                if let character = self.character {
+                    peripheral.writeValue(data, for: character, type: .withoutResponse)
+                }
             }
+            else {
+                print("Not Connect")
+            }
+            
         } else {
             self.popUp.frame = self.view.frame
             self.popUp.alpha = 0
@@ -155,10 +161,6 @@ extension InstructionViewController: CBCentralManagerDelegate, CBPeripheralDeleg
     
     func peripheralDidUpdateRSSI(_ peripheral: CBPeripheral, error: Error?) {
         print("peripheralDidUpdateRSSI : \(peripheral.rssi)")
-        //        DispatchQueue.global(qos: .background).async {
-        //            var timer = Timer()
-        //            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.readRSSI), userInfo: nil, repeats: true)
-        //        }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
