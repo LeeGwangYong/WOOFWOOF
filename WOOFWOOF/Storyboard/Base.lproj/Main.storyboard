@@ -152,7 +152,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="교육하기" id="Ttn-UB-DYC"/>
+                    <navigationItem key="navigationItem" title="교육하기" id="Ttn-UB-DYC">
+                        <barButtonItem key="rightBarButtonItem" image="figure" landscapeImage="figure" id="bEI-Jg-6Fb"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="R3x-b3-Jyr" id="gtd-qL-d6q"/>
                         <outlet property="heightLayout" destination="AzN-sz-vjd" id="JIC-Ce-3mJ"/>
@@ -163,6 +165,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1292" y="971.96401799100454"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5ng-6S-XM3">
+            <objects>
+                <viewController id="0EJ-hU-hgu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AjH-lL-Rda">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="t7C-b3-VG3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uZ5-Kt-AbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1999" y="972"/>
         </scene>
         <!--위치-->
         <scene sceneID="Znf-RA-Xby">
@@ -230,8 +247,8 @@
                                                     <action selector="missingAction:" destination="1d2-c9-Y06" eventType="touchUpInside" id="Ivl-HA-u3d"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1시 31분 22초" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXA-Sf-RGE">
-                                                <rect key="frame" x="242" y="65.5" width="71.5" height="14.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1시 31분 22초" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXA-Sf-RGE">
+                                                <rect key="frame" x="241" y="76" width="71.5" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -240,19 +257,20 @@
                                         <color key="backgroundColor" red="0.91362601518630981" green="0.91378277540206909" blue="0.91361618041992188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z4K-xE-s7m" secondAttribute="trailing" constant="20" symbolic="YES" id="1Mj-Bx-kfP"/>
-                                            <constraint firstAttribute="trailing" secondItem="kXA-Sf-RGE" secondAttribute="trailing" constant="24" id="6ON-sw-id0"/>
+                                            <constraint firstAttribute="trailing" secondItem="kXA-Sf-RGE" secondAttribute="trailing" constant="25" id="5Pf-sc-lg4"/>
                                             <constraint firstItem="Z4K-xE-s7m" firstAttribute="leading" secondItem="kKV-Sg-mLm" secondAttribute="trailing" constant="10" id="9Y9-4O-9zD"/>
                                             <constraint firstAttribute="height" constant="100" id="A4A-gV-aSJ"/>
                                             <constraint firstItem="kKV-Sg-mLm" firstAttribute="leading" secondItem="BTr-E8-Vjv" secondAttribute="leading" constant="24" id="AtG-4T-WfF"/>
                                             <constraint firstItem="Z4K-xE-s7m" firstAttribute="top" secondItem="kKV-Sg-mLm" secondAttribute="top" id="FjN-GV-v0E"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tMU-L2-Q0V" secondAttribute="trailing" constant="25" id="JVw-Nf-bs8"/>
                                             <constraint firstItem="kKV-Sg-mLm" firstAttribute="centerY" secondItem="BTr-E8-Vjv" secondAttribute="centerY" id="Jhh-am-Dax"/>
                                             <constraint firstItem="pQy-dW-hdA" firstAttribute="top" secondItem="BTr-E8-Vjv" secondAttribute="top" id="MyU-4E-zvG"/>
                                             <constraint firstAttribute="trailing" secondItem="pQy-dW-hdA" secondAttribute="trailing" id="P6W-du-z2P"/>
                                             <constraint firstItem="tMU-L2-Q0V" firstAttribute="leading" secondItem="Z4K-xE-s7m" secondAttribute="leading" id="U8B-mr-vP8"/>
-                                            <constraint firstItem="kXA-Sf-RGE" firstAttribute="bottom" secondItem="kKV-Sg-mLm" secondAttribute="bottom" id="gac-xk-79b"/>
                                             <constraint firstItem="tMU-L2-Q0V" firstAttribute="top" secondItem="Z4K-xE-s7m" secondAttribute="bottom" constant="10" id="gqi-e0-ZfW"/>
+                                            <constraint firstItem="kXA-Sf-RGE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BTr-E8-Vjv" secondAttribute="leading" constant="25" id="iTX-hE-w4i"/>
                                             <constraint firstItem="kKV-Sg-mLm" firstAttribute="height" secondItem="BTr-E8-Vjv" secondAttribute="height" multiplier="0.6" id="l4q-AM-gy7"/>
-                                            <constraint firstItem="kXA-Sf-RGE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tMU-L2-Q0V" secondAttribute="trailing" constant="10" id="lRl-DX-xNg"/>
+                                            <constraint firstItem="kXA-Sf-RGE" firstAttribute="top" secondItem="tMU-L2-Q0V" secondAttribute="bottom" constant="5" id="pmi-zn-9Vh"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
@@ -289,7 +307,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M8E-XL-WwB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="위치" id="Njc-AQ-ZAj"/>
+                    <navigationItem key="navigationItem" title="위치" id="Njc-AQ-ZAj">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="figure" landscapeImage="figure" id="v6z-AX-KD9"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="tMU-L2-Q0V" id="crA-ws-jk9"/>
                         <outlet property="alertButton" destination="pQy-dW-hdA" id="GPh-qC-4x2"/>
@@ -415,16 +435,112 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fXO-BK-7NL"/>
                     </view>
-                    <navigationItem key="navigationItem" title="수니트" id="YWN-qm-v3p"/>
+                    <navigationItem key="navigationItem" title="수니트" id="YWN-qm-v3p">
+                        <barButtonItem key="rightBarButtonItem" image="figure" id="UQy-zZ-LhT"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="educationTime" destination="hJI-PR-Fop" id="bLc-sb-O4Q"/>
                         <outlet property="planCollectionView" destination="mH7-wZ-GaP" id="CGd-Zj-Vjd"/>
                         <outlet property="profileImage" destination="B87-HZ-W3D" id="hNo-hv-Gek"/>
+                        <outlet property="profileView" destination="gMq-Jf-3PG" id="cOQ-Jh-LJf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2kV-bN-4eY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1292" y="132.68365817091455"/>
+        </scene>
+        <!--Plan View Controller-->
+        <scene sceneID="sOJ-th-lWZ">
+            <objects>
+                <viewController storyboardIdentifier="PlanViewController" id="Zn8-Yz-DQQ" customClass="PlanViewController" customModule="WOOFWOOF" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8he-3q-3eE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdo-fb-kds" customClass="CHIPageControlAji" customModule="CHIPageControl">
+                                <rect key="frame" x="0.0" y="40" width="375" height="7"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="7" id="pTR-AH-YdQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ry0-e7-hH0">
+                                <rect key="frame" x="0.0" y="62" width="375" height="545"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HjC-VX-s4L">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1X1-Ix-Hly">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiL-tQ-qNW">
+                                <rect key="frame" x="112.5" y="607" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.2023485004901886" green="0.69173574447631836" blue="0.86711305379867554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="0gU-Xv-hVK"/>
+                                    <constraint firstAttribute="height" constant="50" id="V7D-JU-Xm6"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="34" minY="14" maxX="34" maxY="14"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="클리커" image="ckicon"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93323183059692383" green="0.9333917498588562" blue="0.93322181701660156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="b6u-BM-727" firstAttribute="bottom" secondItem="jiL-tQ-qNW" secondAttribute="bottom" constant="10" id="3eV-BC-ucw"/>
+                            <constraint firstItem="jiL-tQ-qNW" firstAttribute="centerX" secondItem="b6u-BM-727" secondAttribute="centerX" id="TgZ-YX-8wx"/>
+                            <constraint firstItem="ry0-e7-hH0" firstAttribute="top" secondItem="Gdo-fb-kds" secondAttribute="bottom" constant="15" id="Xxy-Eg-9Of"/>
+                            <constraint firstItem="b6u-BM-727" firstAttribute="trailing" secondItem="Gdo-fb-kds" secondAttribute="trailing" id="fHt-oW-tcW"/>
+                            <constraint firstItem="b6u-BM-727" firstAttribute="trailing" secondItem="ry0-e7-hH0" secondAttribute="trailing" id="lXj-Yl-z5i"/>
+                            <constraint firstItem="Gdo-fb-kds" firstAttribute="leading" secondItem="b6u-BM-727" secondAttribute="leading" id="o2R-Q7-l0h"/>
+                            <constraint firstItem="ry0-e7-hH0" firstAttribute="leading" secondItem="b6u-BM-727" secondAttribute="leading" id="oxb-rc-qFv"/>
+                            <constraint firstItem="Gdo-fb-kds" firstAttribute="top" secondItem="b6u-BM-727" secondAttribute="top" constant="20" id="qtq-ke-sQw"/>
+                            <constraint firstItem="b6u-BM-727" firstAttribute="bottom" secondItem="ry0-e7-hH0" secondAttribute="bottom" constant="60" id="wdl-8e-fLd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b6u-BM-727"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageController" destination="Gdo-fb-kds" id="eTq-ew-KIi"/>
+                        <outlet property="pagingCollectionView" destination="ry0-e7-hH0" id="LMq-fE-tKg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9qd-D1-va9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2088.8000000000002" y="132.68365817091455"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tGG-ZD-uzu">
@@ -508,11 +624,13 @@
     <resources>
         <image name="arrow" width="11" height="19"/>
         <image name="backgroundIMG" width="505" height="335"/>
+        <image name="ckicon" width="21" height="24"/>
         <image name="coffiicon" width="40" height="29"/>
         <image name="dog" width="43" height="43"/>
+        <image name="figure" width="23" height="31"/>
         <image name="lofficon" width="26" height="32"/>
         <image name="missingOff" width="23" height="28"/>
         <image name="my" width="43" height="43"/>
-        <image name="rofficon" width="40" height="46"/>
+        <image name="rofficon" width="31" height="35"/>
     </resources>
 </document>

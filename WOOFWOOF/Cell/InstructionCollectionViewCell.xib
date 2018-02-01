@@ -27,9 +27,9 @@
                             <constraint firstAttribute="width" secondItem="xxQ-pC-hk5" secondAttribute="height" multiplier="1:1" id="Fqa-O6-MWU"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앉아" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYU-Lg-qFo">
-                        <rect key="frame" x="30" y="179.5" width="124.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앉아" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYU-Lg-qFo">
+                        <rect key="frame" x="30" y="179.5" width="124.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>

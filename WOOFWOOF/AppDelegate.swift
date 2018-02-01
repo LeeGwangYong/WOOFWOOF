@@ -11,7 +11,7 @@ import Realm
 import RealmSwift
 import CoreBluetooth
 import UserNotifications
-
+import Lottie
 
 struct PeripheralInfo{
     static let name = "WF2"
@@ -37,9 +37,20 @@ struct PeripheralInfo{
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var i = 0
+    var animationView: LOTAnimationView?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        animationView = LOTAnimationView(name: "bluetooth")
+        animationView?.contentMode = .scaleAspectFill
+        
+        animationView?.frame = CGRect(x: -10, y: 50, width: 100  , height: 100)
+        window?.rootViewController?.view.addSubview(animationView!)
+        animationView?.loopAnimation = true
+        animationView?.pause()
+
         if let realmURL = Realm.Configuration.defaultConfiguration.fileURL {
+            
             print(realmURL.absoluteString)
 //                        do {
 //                            try FileManager().removeItem(at: realmURL)
@@ -187,6 +198,7 @@ extension AppDelegate: CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        animationView?.play()
         PeripheralInfo.peripheral.discoverServices(nil)
     }
     
@@ -221,6 +233,8 @@ extension AppDelegate: CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        animationView?.stop()
+        
         let content = UNMutableNotificationContent()
         content.title = "🔥 비상! 비상! 🔥"
         content.subtitle = "'복순이'의 위치가 감지되지않습니다."

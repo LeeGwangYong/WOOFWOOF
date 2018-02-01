@@ -313,6 +313,9 @@
 		FC206F432022DDC800FF0F45 /* PopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC206F422022DDC800FF0F45 /* PopUpView.xib */; };
 		FC206F452022DDDE00FF0F45 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F442022DDDE00FF0F45 /* PopUpView.swift */; };
 		FC206F472023098F00FF0F45 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC206F462023098F00FF0F45 /* CircleImage.swift */; };
+		FC8B14242023A8210004F146 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8B14232023A8210004F146 /* PlanViewController.swift */; };
+		FC8B14292023AA6E0004F146 /* PlanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8B14272023AA6E0004F146 /* PlanCollectionViewCell.swift */; };
+		FC8B142A2023AA6E0004F146 /* PlanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8B14282023AA6E0004F146 /* PlanCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -645,6 +648,9 @@
 		FC206F422022DDC800FF0F45 /* PopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpView.xib; sourceTree = "<group>"; };
 		FC206F442022DDDE00FF0F45 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		FC206F462023098F00FF0F45 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		FC8B14232023A8210004F146 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		FC8B14272023AA6E0004F146 /* PlanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCollectionViewCell.swift; sourceTree = "<group>"; };
+		FC8B14282023AA6E0004F146 /* PlanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1082,6 +1088,7 @@
 				FC206A9D2022A6D200FF0F45 /* InstructionViewController.swift */,
 				FC206F2D2022ACB700FF0F45 /* MapViewController.swift */,
 				FC206F2F2022ACBE00FF0F45 /* MainViewController.swift */,
+				FC8B14232023A8210004F146 /* PlanViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1122,6 +1129,8 @@
 			children = (
 				FC206F362022BB9900FF0F45 /* InstructionCollectionViewCell.swift */,
 				FC206F372022BB9900FF0F45 /* InstructionCollectionViewCell.xib */,
+				FC8B14272023AA6E0004F146 /* PlanCollectionViewCell.swift */,
+				FC8B14282023AA6E0004F146 /* PlanCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1313,6 +1322,7 @@
 				FC206E192022A8A400FF0F45 /* _m_t_map_reverse_geo_coder_8h_source.html in Resources */,
 				FC206E722022A8A400FF0F45 /* all_b.html in Resources */,
 				FC206EDF2022A8A400FF0F45 /* interface_m_t_map_polyline.html in Resources */,
+				FC8B142A2023AA6E0004F146 /* PlanCollectionViewCell.xib in Resources */,
 				FC2025CC20233838005773FB /* IndicatorView.xib in Resources */,
 				FC206E472022A8A400FF0F45 /* interface_m_t_map_location_marker_item.html in Resources */,
 				FC206E402022A8A400FF0F45 /* class_m_t_map_polyline-members.html in Resources */,
@@ -1554,6 +1564,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WOOFWOOF/Pods-WOOFWOOF-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/KDCircularProgress/KDCircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -1563,6 +1574,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDCircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -1595,8 +1607,10 @@
 				FC202D6E20236643005773FB /* NotificationName.swift in Sources */,
 				FC206F2E2022ACB700FF0F45 /* MapViewController.swift in Sources */,
 				FC2025C8202325A1005773FB /* Profile.swift in Sources */,
+				FC8B14242023A8210004F146 /* PlanViewController.swift in Sources */,
 				FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */,
 				FC206F322022B92000FF0F45 /* TaCoExtension.swift in Sources */,
+				FC8B14292023AA6E0004F146 /* PlanCollectionViewCell.swift in Sources */,
 				FC206F412022DC1900FF0F45 /* Instruction.swift in Sources */,
 				FC206F3F2022DAD400FF0F45 /* RoundedImageView.swift in Sources */,
 			);

@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet var educationTime: UILabel!
     @IBOutlet var planCollectionView: UICollectionView!
     var popUp: PopUpView!
+    @IBOutlet var profileView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,15 @@ class MainViewController: UIViewController {
         educationTime.minimumScaleFactor = 0.1
         self.planCollectionView.setUp(target: self, cell: InstructionCollectionViewCell.self)
         popUp = UINib(nibName: PopUpView.reuseIdentifier, bundle: nil).instantiate(withOwner: self, options: nil)[0] as! PopUpView
-        
+        self.profileView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(moveNextVC)))
         updateEducationTime()
+    }
+    
+    @objc func moveNextVC() {
+        let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: PlanViewController.reuseIdentifier)
+        self.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        self.hidesBottomBarWhenPushed = false
     }
     
     func updateEducationTime() {

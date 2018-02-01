@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "rofficon.png",
+      "filename" : "tabRoffS.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "rofficon@2x.png",
+      "filename" : "tabRoffS@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "rofficon@3x.png",
+      "filename" : "tabRoffS@3x.png",
       "scale" : "3x"
     }
   ],

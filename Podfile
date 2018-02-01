@@ -8,6 +8,7 @@ pod 'RealmSwift'
 pod 'lottie-ios'
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod 'CHIPageControl'
 pod 'KDCircularProgress', :git => 'https://github.com/kaandedeoglu/KDCircularProgress'
   # Pods for WOOFWOOF
 
