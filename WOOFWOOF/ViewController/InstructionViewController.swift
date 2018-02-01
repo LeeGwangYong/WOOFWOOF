@@ -11,22 +11,8 @@ import CoreBluetooth
 import Realm
 import RealmSwift
 
-//struct PeripheralInfo{
-//    static let name = "WOOF"
-//    static let service_UUID =
-//        CBUUID(string: "FFE0")
-//    static let characteristic_UUID =
-//        CBUUID(string: "FFE1")
-//    static var currentRSSI:NSNumber = 0
-//}
-
-
 class InstructionViewController: UIViewController {
     //MARK -: Property
-    var manager:CBCentralManager!
-    var peripheral:CBPeripheral!
-    var character: CBCharacteristic?
-    
     var instructionArray = Instruction.realm.objects(Instruction.self)
     var popUp: PopUpView!
     
@@ -39,7 +25,6 @@ class InstructionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUpBluetooth()
         self.instructionCollectionView.setUp(target: self, cell: InstructionCollectionViewCell.self)
         popUp = UINib(nibName: PopUpView.reuseIdentifier, bundle: nil).instantiate(withOwner: self, options: nil)[0] as! PopUpView
     }
@@ -64,7 +49,6 @@ class InstructionViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    var i = 0
 }
 
 extension InstructionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -94,9 +78,9 @@ extension InstructionViewController: UICollectionViewDelegate, UICollectionViewD
         if indexPath.row < 3 {
             let value: UInt8 = UInt8(exactly: instructionArray[indexPath.row].value)!
             let data = Data(bytes: [value])
-            if peripheral != nil {
-                if let character = self.character {
-                    peripheral.writeValue(data, for: character, type: .withoutResponse)
+            if PeripheralInfo.peripheral != nil {
+                if let character = PeripheralInfo.character {
+                    PeripheralInfo.peripheral.writeValue(data, for: character, type: .withoutResponse)
                 }
             }
             else {
@@ -115,104 +99,3 @@ extension InstructionViewController: UICollectionViewDelegate, UICollectionViewD
         }
     }
 }
-
-extension InstructionViewController: CBCentralManagerDelegate, CBPeripheralDelegate {
-    
-    func setUpBluetooth() {
-        self.manager = CBCentralManager(delegate: self, queue: nil)
-        self.manager.delegate = self
-    }
-    
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        switch central.state {
-        case .unknown:
-            print("The state of the BLE Manager is unknown.")
-        case .resetting:
-            print("The BLE Manager is resetting; a state update is pending.")
-        case .unsupported:
-            print("This device does not support Bluetooth Low Energy.")
-        case .unauthorized:
-            print("This app is not authorized to use Bluetooth Low Energy.")
-        case .poweredOff:
-            print("Bluetooth on this device is currently powered off.")
-        case .poweredOn:
-            central.scanForPeripherals(withServices: nil, options: nil)
-        }
-    }
-    
-    
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        let device = (advertisementData as NSDictionary).object(forKey: CBAdvertisementDataLocalNameKey) as? NSString
-        
-        print("Peripheral Name : \(advertisementData[CBAdvertisementDataLocalNameKey]) \(i)")
-        i = i + 1
-        if device?.contains(PeripheralInfo.name) == true {
-            self.manager.stopScan()
-            self.peripheral = peripheral
-            self.peripheral.delegate = self
-            manager.connect(peripheral, options: nil)
-        }
-    }
-    
-    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
-        print("DidReadRSSI : \(RSSI)")
-        PeripheralInfo.currentRSSI = RSSI
-    }
-    
-    func peripheralDidUpdateRSSI(_ peripheral: CBPeripheral, error: Error?) {
-        print("peripheralDidUpdateRSSI : \(peripheral.rssi)")
-    }
-    
-    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        self.peripheral.discoverServices(nil)
-    }
-    
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        for service in peripheral.services! {
-            
-            let cbservcie = service as CBService
-            print(cbservcie.uuid)
-            if cbservcie.uuid == PeripheralInfo.service_UUID {
-                peripheral.discoverCharacteristics(nil, for: cbservcie)
-            }
-        }
-    }
-    
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        for characteristic in service.characteristics! {
-            let cbcharacteristic = characteristic as CBCharacteristic
-            print(cbcharacteristic.uuid)
-            if cbcharacteristic.uuid == PeripheralInfo.characteristic_UUID {
-                self.character = cbcharacteristic
-                self.peripheral.setNotifyValue(true, for: cbcharacteristic) //주기적인 업데이트
-//                self.peripheral.setNotifyValue(true, for: characteristicUpdatingEveryQuarterOfASecond)
-            }
-        }
-    }
-    
-    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        //백그라운드에서 받는 게 가능할까?
-        
-        self.peripheral.readRSSI()
-        print(characteristic.uuid)
-        //        var count:UInt8 = 1
-        //        //notification에 설정된 characteristic이 update될 때, 해당 delegate method 실행
-        //        if characteristic.uuid == PeripheralInfo.scratch_UUID {
-        //            if let data = characteristic.value {
-        //                data.copyBytes(to: &count, count: MemoryLayout<UInt8>.size)
-        //                print(count)
-        //            }
-        //        }
-        
-        //        self.peripheral.readRSSI()
-    }
-    
-    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        //if disconnect peripheral, reconnect peripheral
-        central.scanForPeripherals(withServices: nil, options: nil)
-    }
-    
-    
-    
-}
-
