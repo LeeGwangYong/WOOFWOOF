@@ -22,8 +22,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhM-xT-Y1b">
-                        <rect key="frame" x="27.5" y="311" width="219" height="72"/>
-                        <string key="text">앉아를 명령하세요.즉시 보상하지 말고, 개가 냄새를맡을 수 있는  거리에서 간식을 들고 있으세요. </string>
+                        <rect key="frame" x="27.5" y="266" width="219" height="72"/>
+                        <string key="text">앉아를 명령하세요.
+즉시 보상하지 말고, 개가 냄새를
+맡을 수 있는  거리에서 간식을 들고 있으세요. </string>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -43,8 +45,8 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="J9v-AN-Y2f" firstAttribute="top" secondItem="8oJ-X4-wgh" secondAttribute="bottom" constant="30" id="BPt-Yy-cwc"/>
-                <constraint firstItem="fhM-xT-Y1b" firstAttribute="top" secondItem="J9v-AN-Y2f" secondAttribute="bottom" constant="55" id="GmJ-2Y-eji"/>
+                <constraint firstItem="J9v-AN-Y2f" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="64" id="6pT-0X-BYl"/>
+                <constraint firstItem="fhM-xT-Y1b" firstAttribute="top" secondItem="J9v-AN-Y2f" secondAttribute="bottom" constant="10" id="GmJ-2Y-eji"/>
                 <constraint firstItem="fhM-xT-Y1b" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="HCi-5M-cvh"/>
                 <constraint firstItem="J9v-AN-Y2f" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="Po7-e6-e6E"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fhM-xT-Y1b" secondAttribute="bottom" constant="10" id="WNF-2d-8yF"/>

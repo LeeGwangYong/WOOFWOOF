@@ -14,7 +14,7 @@ import UserNotifications
 import Lottie
 
 struct PeripheralInfo{
-    static let name = "WOOF"
+    static let name = "WF2"
     static let service_UUID =
         CBUUID(string: "FFE0")
     static let characteristic_UUID =
@@ -220,7 +220,16 @@ extension AppDelegate: CBCentralManagerDelegate, CBPeripheralDelegate {
             if cbcharacteristic.uuid == PeripheralInfo.characteristic_UUID {
                 PeripheralInfo.character = cbcharacteristic
                 PeripheralInfo.peripheral.setNotifyValue(true, for: cbcharacteristic) //주기적인 업데이트
-                //                self.peripheral.setNotifyValue(true, for: characteristicUpdatingEveryQuarterOfASecond)
+                
+                //send data to BLE
+                let value: UInt8 = UInt8(exactly: 7)!
+                let data = Data(bytes: [value])
+                if PeripheralInfo.peripheral != nil {
+                    if let character = PeripheralInfo.character {
+                        PeripheralInfo.peripheral.writeValue(data, for: character, type: .withoutResponse)
+                    }
+                }
+                
             }
         }
     }
@@ -242,7 +251,7 @@ extension AppDelegate: CBCentralManagerDelegate, CBPeripheralDelegate {
 '복순이'가 세이프존을 이탈하였습니다.
 """
         content.categoryIdentifier = "category"
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound(named: "dog.mp3")
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: "notification", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (error) in

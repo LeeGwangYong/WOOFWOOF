@@ -25,6 +25,7 @@ PODS:
   - RealmSwift (3.1.0):
     - Realm (= 3.1.0)
   - SwiftyJSON (4.0.0)
+  - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - lottie-ios
   - RealmSwift
   - SwiftyJSON
+  - Toast-Swift
 
 EXTERNAL SOURCES:
   KDCircularProgress:
@@ -51,7 +53,8 @@ SPEC CHECKSUMS:
   Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
   RealmSwift: e868fee9b10e5490ad94b6b6ecd9027944da1824
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 536af9aabf12caf1f60d489dea644d11cd247ac2
+PODFILE CHECKSUM: dceab797d442ff738fe8eb3c0b8947e36349e46a
 
 COCOAPODS: 1.3.1

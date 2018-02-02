@@ -18,5 +18,5 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
 }

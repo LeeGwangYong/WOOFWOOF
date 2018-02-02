@@ -10,6 +10,7 @@ import UIKit
 import CoreBluetooth
 import Realm
 import RealmSwift
+import Toast_Swift
 
 class InstructionViewController: UIViewController {
     //MARK -: Property
@@ -90,7 +91,7 @@ extension InstructionViewController: UICollectionViewDelegate, UICollectionViewD
                 }
             }
             else {
-                print("Not Connect")
+                self.view.makeToast("'복순이'와 연결 중입니다.")
             }
             
         } else {

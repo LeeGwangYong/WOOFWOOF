@@ -28,8 +28,7 @@ class PlanViewController: UIViewController {
         detailArr.append(PlanDetail(title: "Step 1", img: #imageLiteral(resourceName: "img1"), content: """
 먼저 앉아를 명령하세요.
 이번에는 보상을 급하게 하지 마세요.
-냄새를 맡을 수 있는 거리에서 보상을
-강아지 앞에 두세요.
+냄새를 맡을 수 있는 거리에서 보상을 강아지 앞에 두세요.
 """))
         detailArr.append(PlanDetail(title: "Step 2", img: #imageLiteral(resourceName: "img2"), content: "반려견의 코앞에서 천천히 보상을 밑으로 내려주세요."))
         detailArr.append(PlanDetail(title: "Step 3", img: #imageLiteral(resourceName: "img3"), content: """
@@ -82,6 +81,7 @@ extension PlanViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.planImage.image = detailArr[indexPath.row].img
         cell.textLabel.text = detailArr[indexPath.row].content
         cell.titleLabel.text = detailArr[indexPath.row].title
+
         return cell
     }
     

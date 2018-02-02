@@ -34,7 +34,7 @@ class ActiveViewController: UIViewController {
         self.weekCollectionView.setUp(target: self, cell: CalendarCollectionViewCell.self)
         setCal()
 
-        
+//        self.weekCollectionView.isPrefetchingEnabled = false
     }
     
     func setChart(_ dataPoints: [String], values: [Double]){
@@ -87,7 +87,7 @@ class ActiveViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.progressBar.animate(fromAngle: 0, toAngle: 290, duration: 2) { (active) in
+        self.progressBar.animate(fromAngle: 0, toAngle: 0, duration: 2) { (active) in
             if !active {print("Error")}
         }
         self.barChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
@@ -107,22 +107,24 @@ extension ActiveViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let cell: CalendarCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.weekdayLabel.text = datas[indexPath.row].weekDay
         cell.dayLabel.text = String(describing: datas[indexPath.row].day)
-//        cell.progressBar.startAngle = -90
         cell.progressBar.animate(fromAngle: -90, toAngle: Double(datas[indexPath.row].value * 6), duration: 1, completion: nil)
-//        cell.progressBar.angle = Double(datas[indexPath.row].value * 6)
+        //cell.reload()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width / 7.3, height: collectionView.bounds.height)
+        return CGSize(width: collectionView.bounds.width / 7.1, height: collectionView.bounds.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        progressBar.animate(fromAngle: -90, toAngle: Double(datas[indexPath.row].value * 6), duration: 1, completion: nil)
+        progressBar.animate(toAngle:  Double(datas[indexPath.row].value * 6), duration: 2, completion: nil)
+        //(fromAngle: -90, toAngle: Double(datas[indexPath.row].value * 6), duration: 2, completion: nil)
         remainLabel.text = "\(datas[indexPath.row].value)/60분"
-        
+
     }
-    
-    
 }
 

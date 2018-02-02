@@ -22,10 +22,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l48-6n-hQB" customClass="KDCircularProgress" customModule="KDCircularProgress">
-                        <rect key="frame" x="0.0" y="30" width="93" height="93"/>
+                        <rect key="frame" x="12.5" y="42.5" width="68" height="68"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iin-Kd-yRX">
-                                <rect key="frame" x="36" y="36.5" width="21.5" height="21"/>
+                                <rect key="frame" x="23.5" y="23.5" width="21.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
-                                <color key="value" red="0.93324393029999997" green="0.93346440789999996" blue="0.92913871999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
                                 <color key="value" red="0.21911388640000001" green="0.74637550119999996" blue="0.93841308359999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -53,7 +53,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmH-SZ-7Fz">
-                        <rect key="frame" x="38.5" y="123" width="15" height="21"/>
+                        <rect key="frame" x="38.5" y="110.5" width="15" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -61,11 +61,11 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="l48-6n-hQB" secondAttribute="trailing" id="0C0-ES-NJw"/>
                 <constraint firstItem="xmH-SZ-7Fz" firstAttribute="top" secondItem="l48-6n-hQB" secondAttribute="bottom" id="9oa-z4-PKi"/>
+                <constraint firstItem="l48-6n-hQB" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.4" id="ACX-PD-sCu"/>
+                <constraint firstItem="l48-6n-hQB" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="Oih-7c-wdr"/>
                 <constraint firstItem="l48-6n-hQB" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" multiplier="0.9" id="Snj-nu-HRL"/>
                 <constraint firstItem="xmH-SZ-7Fz" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="ZCw-eQ-aSV"/>
-                <constraint firstItem="l48-6n-hQB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sy3-qo-oCp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="93" height="170"/>

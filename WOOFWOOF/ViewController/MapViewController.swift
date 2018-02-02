@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import UserNotifications
 import SwiftyJSON
+import Toast_Swift
 
 enum POIType: Int {
     case dog = 0
@@ -54,6 +55,15 @@ class MapViewController: UIViewController {
             let dateFormat = DateFormatter()
             dateFormat.dateFormat = "dd일 hh시 mm분 ss초"
             self.preTimeLabel.text = dateFormat.string(from: PeripheralInfo.dogTime!)
+            
+            let value: UInt8 = UInt8(exactly: 7)!
+            let data = Data(bytes: [value])
+            if PeripheralInfo.peripheral != nil {
+                if let character = PeripheralInfo.character {
+                    PeripheralInfo.peripheral.writeValue(data, for: character, type: .withoutResponse)
+                }
+            }
+            
             alertButton.setImage(#imageLiteral(resourceName: "missingOff"), for: .normal)
         }
         else {
@@ -88,6 +98,15 @@ class MapViewController: UIViewController {
     @IBAction func missingAction(_ sender: UIButton) {
         if PeripheralInfo.peripheral != nil {
             if PeripheralInfo.peripheral.state == .connecting || PeripheralInfo.peripheral.state == .connected {
+                
+                let value: UInt8 = UInt8(exactly: 8)!
+                let data = Data(bytes: [value])
+                if PeripheralInfo.peripheral != nil {
+                    if let character = PeripheralInfo.character {
+                        PeripheralInfo.peripheral.writeValue(data, for: character, type: .withoutResponse)
+                    }
+                }
+                
                 PeripheralInfo.manager.cancelPeripheralConnection(PeripheralInfo.peripheral)
                 PeripheralInfo.flag = false
                 PeripheralInfo.currentDog = MTMapPoint(geoCoord: MTMapPointGeo(latitude: 37.451342470941, longitude: 126.655705185741))
@@ -97,7 +116,6 @@ class MapViewController: UIViewController {
                 PeripheralInfo.manager.scanForPeripherals(withServices: nil, options: nil)
                 PeripheralInfo.flag = true
             }
-            
         }
     }
     
@@ -108,6 +126,12 @@ class MapViewController: UIViewController {
     @IBAction func moveToDog(_ sender: UIButton) {
         if let currentDog = PeripheralInfo.currentDog {
             self.mapView.setMapCenter(currentDog, zoomLevel: 0, animated: true)
+        }
+        else {
+            self.view.makeToast("""
+'복순이'와 연결 중입니다.
+'복순이'의 위치를 찾는 중입니다.
+""")
         }
     }
     

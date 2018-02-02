@@ -323,6 +323,8 @@
 		FC8B143A2023D7E50004F146 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8B14382023D7E50004F146 /* CalendarCollectionViewCell.swift */; };
 		FC8B143B2023D7E50004F146 /* CalendarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8B14392023D7E50004F146 /* CalendarCollectionViewCell.xib */; };
 		FC8B143D2023F1DD0004F146 /* bluetooth.json in Resources */ = {isa = PBXBuildFile; fileRef = FC8B143C2023F1DC0004F146 /* bluetooth.json */; };
+		FC8B14432023FDF70004F146 /* dog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC8B14422023FDF70004F146 /* dog.mp3 */; };
+		FC8B1446202406D80004F146 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8B1445202406D80004F146 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -684,6 +686,9 @@
 		FC8B14382023D7E50004F146 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC8B14392023D7E50004F146 /* CalendarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCollectionViewCell.xib; sourceTree = "<group>"; };
 		FC8B143C2023F1DC0004F146 /* bluetooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluetooth.json; sourceTree = "<group>"; };
+		FC8B14422023FDF70004F146 /* dog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dog.mp3; sourceTree = "<group>"; };
+		FC8B1444202406D80004F146 /* WOOFWOOF.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WOOFWOOF.entitlements; sourceTree = "<group>"; };
+		FC8B1445202406D80004F146 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -694,6 +699,7 @@
 				FC206F1A2022A95000FF0F45 /* libsqlite3.tbd in Frameworks */,
 				FC206F182022A94900FF0F45 /* libxml2.tbd in Frameworks */,
 				FC206F162022A94100FF0F45 /* libstdc++.6.tbd in Frameworks */,
+				FC8B1446202406D80004F146 /* AudioToolbox.framework in Frameworks */,
 				FC206F142022A93500FF0F45 /* QuartzCore.framework in Frameworks */,
 				FC206F122022A92C00FF0F45 /* CoreLocation.framework in Frameworks */,
 				FC206F102022A92200FF0F45 /* SystemConfiguration.framework in Frameworks */,
@@ -719,6 +725,7 @@
 		286D123F0F2BEB74EE13F3E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC8B1445202406D80004F146 /* AudioToolbox.framework */,
 				FC206F192022A95000FF0F45 /* libsqlite3.tbd */,
 				FC206F172022A94900FF0F45 /* libxml2.tbd */,
 				FC206F152022A94100FF0F45 /* libstdc++.6.tbd */,
@@ -763,8 +770,10 @@
 		FC206A9A2022A6D200FF0F45 /* WOOFWOOF */ = {
 			isa = PBXGroup;
 			children = (
+				FC8B1444202406D80004F146 /* WOOFWOOF.entitlements */,
 				FC8B14342023D5E00004F146 /* clicker.mp3 */,
 				FC8B143C2023F1DC0004F146 /* bluetooth.json */,
+				FC8B14422023FDF70004F146 /* dog.mp3 */,
 				FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */,
 				FC206F3D2022DAC400FF0F45 /* Style */,
 				FC202D7020238DD1005773FB /* Network */,
@@ -1228,6 +1237,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -1510,6 +1522,7 @@
 				FC206E7D2022A8A400FF0F45 /* functions_7.html in Resources */,
 				FC206E2D2022A8A400FF0F45 /* _m_t_map_geometry_8h.js in Resources */,
 				FC206EE72022A8A400FF0F45 /* tab_h.png in Resources */,
+				FC8B14432023FDF70004F146 /* dog.mp3 in Resources */,
 				FC206E892022A8A400FF0F45 /* properties_5.html in Resources */,
 				FC206E2A2022A8A400FF0F45 /* struct_m_t_map_bounds-members.html in Resources */,
 				FC206E482022A8A400FF0F45 /* protocol_m_t_map_reverse_geo_coder_delegate-p-members.html in Resources */,
@@ -1612,6 +1625,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1622,6 +1636,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1809,6 +1824,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WOOFWOOF/WOOFWOOF.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EPWV8KDDJE;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1830,6 +1846,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WOOFWOOF/WOOFWOOF.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EPWV8KDDJE;
 				FRAMEWORK_SEARCH_PATHS = (
