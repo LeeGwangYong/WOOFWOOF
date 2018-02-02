@@ -10,6 +10,7 @@ pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'CHIPageControl'
 pod 'KDCircularProgress', :git => 'https://github.com/kaandedeoglu/KDCircularProgress'
+pod 'Toast-Swift'
   # Pods for WOOFWOOF
 
 end

@@ -49,6 +49,12 @@ class InstructionViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
+    @IBAction func moveNextVC(_ sender: UIBarButtonItem) {
+        let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ActiveViewController.reuseIdentifier)
+        self.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        self.hidesBottomBarWhenPushed = false
+    }
 }
 
 extension InstructionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

@@ -110,6 +110,13 @@ class MapViewController: UIViewController {
             self.mapView.setMapCenter(currentDog, zoomLevel: 0, animated: true)
         }
     }
+    
+    @IBAction func activeViewController(_ sender: UIBarButtonItem) {
+        let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ActiveViewController.reuseIdentifier)
+        self.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        self.hidesBottomBarWhenPushed = false
+    }
 }
 
 //MARK -: Extension

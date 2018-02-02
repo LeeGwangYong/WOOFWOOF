@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CalendarCollectionViewCell" customModule="WOOFWOOF" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="93" height="170"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="93" height="170"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l48-6n-hQB" customClass="KDCircularProgress" customModule="KDCircularProgress">
+                        <rect key="frame" x="0.0" y="30" width="93" height="93"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iin-Kd-yRX">
+                                <rect key="frame" x="36" y="36.5" width="21.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="l48-6n-hQB" secondAttribute="height" multiplier="1:1" id="0cg-hs-2g2"/>
+                            <constraint firstItem="Iin-Kd-yRX" firstAttribute="centerY" secondItem="l48-6n-hQB" secondAttribute="centerY" id="I2o-89-aje"/>
+                            <constraint firstItem="Iin-Kd-yRX" firstAttribute="centerX" secondItem="l48-6n-hQB" secondAttribute="centerX" id="uuM-59-0b3"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                <color key="value" red="0.93324393029999997" green="0.93346440789999996" blue="0.92913871999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                <color key="value" red="0.21911388640000001" green="0.74637550119999996" blue="0.93841308359999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                <real key="value" value="-90"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                <real key="value" value="280"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmH-SZ-7Fz">
+                        <rect key="frame" x="38.5" y="123" width="15" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="l48-6n-hQB" secondAttribute="trailing" id="0C0-ES-NJw"/>
+                <constraint firstItem="xmH-SZ-7Fz" firstAttribute="top" secondItem="l48-6n-hQB" secondAttribute="bottom" id="9oa-z4-PKi"/>
+                <constraint firstItem="l48-6n-hQB" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" multiplier="0.9" id="Snj-nu-HRL"/>
+                <constraint firstItem="xmH-SZ-7Fz" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="ZCw-eQ-aSV"/>
+                <constraint firstItem="l48-6n-hQB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sy3-qo-oCp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="93" height="170"/>
+            <connections>
+                <outlet property="dayLabel" destination="Iin-Kd-yRX" id="Lxz-bh-W9b"/>
+                <outlet property="progressBar" destination="l48-6n-hQB" id="XjA-u5-33d"/>
+                <outlet property="weekdayLabel" destination="xmH-SZ-7Fz" id="313-tl-vke"/>
+            </connections>
+            <point key="canvasLocation" x="62.5" y="303"/>
+        </collectionViewCell>
+    </objects>
+</document>

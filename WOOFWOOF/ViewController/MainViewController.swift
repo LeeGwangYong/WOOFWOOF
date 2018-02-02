@@ -24,11 +24,10 @@ class MainViewController: UIViewController {
         educationTime.minimumScaleFactor = 0.1
         self.planCollectionView.setUp(target: self, cell: InstructionCollectionViewCell.self)
         popUp = UINib(nibName: PopUpView.reuseIdentifier, bundle: nil).instantiate(withOwner: self, options: nil)[0] as! PopUpView
-        self.profileView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(moveNextVC)))
         updateEducationTime()
     }
     
-    @objc func moveNextVC() {
+    func moveNextVC() {
         let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: PlanViewController.reuseIdentifier)
         self.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(nextVC, animated: true)
@@ -42,6 +41,13 @@ class MainViewController: UIViewController {
             dateFormat.dateFormat = "yyyy년 MM월 dd일 HH시 mm분"
             educationTime.text = "마지막 교육 시간 : \(dateFormat.string(from: date))"
         }
+    }
+    
+    @IBAction func activeViewController(_ sender: UIBarButtonItem) {
+        let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ActiveViewController.reuseIdentifier)
+        self.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        self.hidesBottomBarWhenPushed = false
     }
 }
 
@@ -82,6 +88,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         else {
             UserDefaults.standard.set(Date(), forKey: "education")
             updateEducationTime()
+            moveNextVC()
         }
     }
     

@@ -14,7 +14,7 @@ import UserNotifications
 import Lottie
 
 struct PeripheralInfo{
-    static let name = "WF2"
+    static let name = "WOOF"
     static let service_UUID =
         CBUUID(string: "FFE0")
     static let characteristic_UUID =
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         animationView = LOTAnimationView(name: "bluetooth")
         animationView?.contentMode = .scaleAspectFill
         
-        animationView?.frame = CGRect(x: -10, y: 50, width: 100  , height: 100)
+        animationView?.frame = CGRect(x: 10, y: 55, width: 50  , height: 50)
         window?.rootViewController?.view.addSubview(animationView!)
         animationView?.loopAnimation = true
         animationView?.pause()

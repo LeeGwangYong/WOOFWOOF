@@ -10,7 +10,6 @@
 		44259CBE4961CCE81722A775 /* Pods_WOOFWOOF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419B4A4D2722D04EB101359B /* Pods_WOOFWOOF.framework */; };
 		FC2025C520231E17005773FB /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2025C420231E17005773FB /* Plan.swift */; };
 		FC2025C8202325A1005773FB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2025C7202325A1005773FB /* Profile.swift */; };
-		FC2025CA202336D9005773FB /* bluetooth.json in Resources */ = {isa = PBXBuildFile; fileRef = FC2025C9202336D9005773FB /* bluetooth.json */; };
 		FC2025CC20233838005773FB /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2025CB20233838005773FB /* IndicatorView.xib */; };
 		FC2025CE20233843005773FB /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2025CD20233843005773FB /* IndicatorView.swift */; };
 		FC202D6E20236643005773FB /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC202D6D20236643005773FB /* NotificationName.swift */; };
@@ -316,6 +315,14 @@
 		FC8B14242023A8210004F146 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8B14232023A8210004F146 /* PlanViewController.swift */; };
 		FC8B14292023AA6E0004F146 /* PlanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8B14272023AA6E0004F146 /* PlanCollectionViewCell.swift */; };
 		FC8B142A2023AA6E0004F146 /* PlanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8B14282023AA6E0004F146 /* PlanCollectionViewCell.xib */; };
+		FC8B142C2023B7080004F146 /* ActiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8B142B2023B7080004F146 /* ActiveViewController.swift */; };
+		FC8B142E2023BD030004F146 /* RoundedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8B142D2023BD030004F146 /* RoundedExtension.swift */; };
+		FC8B142F2023C2930004F146 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F222022AA8B00FF0F45 /* Charts.framework */; };
+		FC8B14302023C2930004F146 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC206F222022AA8B00FF0F45 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FC8B14352023D5E10004F146 /* clicker.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC8B14342023D5E00004F146 /* clicker.mp3 */; };
+		FC8B143A2023D7E50004F146 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8B14382023D7E50004F146 /* CalendarCollectionViewCell.swift */; };
+		FC8B143B2023D7E50004F146 /* CalendarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8B14392023D7E50004F146 /* CalendarCollectionViewCell.xib */; };
+		FC8B143D2023F1DD0004F146 /* bluetooth.json in Resources */ = {isa = PBXBuildFile; fileRef = FC8B143C2023F1DC0004F146 /* bluetooth.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,7 +340,28 @@
 			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
 			remoteInfo = ChartsTests;
 		};
+		FC8B14312023C2930004F146 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC206F1C2022AA8B00FF0F45 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A58A4ED274A941CA248EA921;
+			remoteInfo = Charts;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FC8B14332023C2930004F146 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FC8B14302023C2930004F146 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		419B4A4D2722D04EB101359B /* Pods_WOOFWOOF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WOOFWOOF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,7 +369,6 @@
 		8736516750314287D0655964 /* Pods-WOOFWOOF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WOOFWOOF.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WOOFWOOF/Pods-WOOFWOOF.debug.xcconfig"; sourceTree = "<group>"; };
 		FC2025C420231E17005773FB /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		FC2025C7202325A1005773FB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		FC2025C9202336D9005773FB /* bluetooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluetooth.json; sourceTree = "<group>"; };
 		FC2025CB20233838005773FB /* IndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
 		FC2025CD20233843005773FB /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		FC202D6D20236643005773FB /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
@@ -651,6 +678,12 @@
 		FC8B14232023A8210004F146 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		FC8B14272023AA6E0004F146 /* PlanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC8B14282023AA6E0004F146 /* PlanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanCollectionViewCell.xib; sourceTree = "<group>"; };
+		FC8B142B2023B7080004F146 /* ActiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveViewController.swift; sourceTree = "<group>"; };
+		FC8B142D2023BD030004F146 /* RoundedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedExtension.swift; sourceTree = "<group>"; };
+		FC8B14342023D5E00004F146 /* clicker.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clicker.mp3; sourceTree = "<group>"; };
+		FC8B14382023D7E50004F146 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		FC8B14392023D7E50004F146 /* CalendarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCollectionViewCell.xib; sourceTree = "<group>"; };
+		FC8B143C2023F1DC0004F146 /* bluetooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluetooth.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -665,6 +698,7 @@
 				FC206F122022A92C00FF0F45 /* CoreLocation.framework in Frameworks */,
 				FC206F102022A92200FF0F45 /* SystemConfiguration.framework in Frameworks */,
 				FC206F0E2022A91800FF0F45 /* OpenGLES.framework in Frameworks */,
+				FC8B142F2023C2930004F146 /* Charts.framework in Frameworks */,
 				FC206E162022A8A300FF0F45 /* DaumMap.framework in Frameworks */,
 				44259CBE4961CCE81722A775 /* Pods_WOOFWOOF.framework in Frameworks */,
 			);
@@ -729,7 +763,8 @@
 		FC206A9A2022A6D200FF0F45 /* WOOFWOOF */ = {
 			isa = PBXGroup;
 			children = (
-				FC2025C9202336D9005773FB /* bluetooth.json */,
+				FC8B14342023D5E00004F146 /* clicker.mp3 */,
+				FC8B143C2023F1DC0004F146 /* bluetooth.json */,
 				FC206A9B2022A6D200FF0F45 /* AppDelegate.swift */,
 				FC206F3D2022DAC400FF0F45 /* Style */,
 				FC202D7020238DD1005773FB /* Network */,
@@ -1089,6 +1124,7 @@
 				FC206F2D2022ACB700FF0F45 /* MapViewController.swift */,
 				FC206F2F2022ACBE00FF0F45 /* MainViewController.swift */,
 				FC8B14232023A8210004F146 /* PlanViewController.swift */,
+				FC8B142B2023B7080004F146 /* ActiveViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1101,6 +1137,7 @@
 				FC206F3A2022CD5000FF0F45 /* Designable.swift */,
 				FC206F462023098F00FF0F45 /* CircleImage.swift */,
 				FC202D6D20236643005773FB /* NotificationName.swift */,
+				FC8B142D2023BD030004F146 /* RoundedExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1131,6 +1168,8 @@
 				FC206F372022BB9900FF0F45 /* InstructionCollectionViewCell.xib */,
 				FC8B14272023AA6E0004F146 /* PlanCollectionViewCell.swift */,
 				FC8B14282023AA6E0004F146 /* PlanCollectionViewCell.xib */,
+				FC8B14382023D7E50004F146 /* CalendarCollectionViewCell.swift */,
+				FC8B14392023D7E50004F146 /* CalendarCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1160,10 +1199,12 @@
 				FC206A962022A6D200FF0F45 /* Resources */,
 				C9187441B489E4886ADEAC41 /* [CP] Embed Pods Frameworks */,
 				927E72067AD354DC00F08593 /* [CP] Copy Pods Resources */,
+				FC8B14332023C2930004F146 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FC8B14322023C2930004F146 /* PBXTargetDependency */,
 			);
 			name = WOOFWOOF;
 			productName = WOOFWOOF;
@@ -1297,7 +1338,6 @@
 				FC206E5D2022A8A400FF0F45 /* functions_6.html in Resources */,
 				FC206E752022A8A400FF0F45 /* all_d.js in Resources */,
 				FC206EC02022A8A400FF0F45 /* functions_c.html in Resources */,
-				FC2025CA202336D9005773FB /* bluetooth.json in Resources */,
 				FC206E282022A8A400FF0F45 /* class_m_t_map_point-members.html in Resources */,
 				FC206E9E2022A8A400FF0F45 /* all_13.html in Resources */,
 				FC206EC32022A8A400FF0F45 /* search_m.png in Resources */,
@@ -1334,6 +1374,7 @@
 				FC206E2B2022A8A400FF0F45 /* class_m_t_map_reverse_geo_coder-members.html in Resources */,
 				FC206DFF2022A8A300FF0F45 /* detail_button.png in Resources */,
 				FC206E462022A8A400FF0F45 /* closed.png in Resources */,
+				FC8B14352023D5E10004F146 /* clicker.mp3 in Resources */,
 				FC206EAB2022A8A400FF0F45 /* functions_d.html in Resources */,
 				FC206E792022A8A400FF0F45 /* classes_0.html in Resources */,
 				FC206E102022A8A300FF0F45 /* map_pin.png in Resources */,
@@ -1410,6 +1451,7 @@
 				FC206E182022A8A400FF0F45 /* dir_e176454b22f670c69197578a11d04323.js in Resources */,
 				FC206E002022A8A300FF0F45 /* map_pin_custom@3x.png in Resources */,
 				FC206DF72022A8A300FF0F45 /* net.daum.MobileMap.docset in Resources */,
+				FC8B143B2023D7E50004F146 /* CalendarCollectionViewCell.xib in Resources */,
 				FC206E272022A8A400FF0F45 /* index.html in Resources */,
 				FC206E932022A8A400FF0F45 /* classes_0.js in Resources */,
 				FC206E122022A8A300FF0F45 /* noimage.png in Resources */,
@@ -1517,6 +1559,7 @@
 				FC206ECA2022A8A400FF0F45 /* pages_0.html in Resources */,
 				FC206ED12022A8A400FF0F45 /* all_7.html in Resources */,
 				FC206E872022A8A400FF0F45 /* all_13.js in Resources */,
+				FC8B143D2023F1DD0004F146 /* bluetooth.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1601,15 +1644,18 @@
 				FC206F382022BB9900FF0F45 /* InstructionCollectionViewCell.swift in Sources */,
 				FC2025CE20233843005773FB /* IndicatorView.swift in Sources */,
 				FC2025C520231E17005773FB /* Plan.swift in Sources */,
+				FC8B142C2023B7080004F146 /* ActiveViewController.swift in Sources */,
 				FC206A9E2022A6D200FF0F45 /* InstructionViewController.swift in Sources */,
 				FC206F472023098F00FF0F45 /* CircleImage.swift in Sources */,
 				FC206F302022ACBE00FF0F45 /* MainViewController.swift in Sources */,
 				FC202D6E20236643005773FB /* NotificationName.swift in Sources */,
+				FC8B142E2023BD030004F146 /* RoundedExtension.swift in Sources */,
 				FC206F2E2022ACB700FF0F45 /* MapViewController.swift in Sources */,
 				FC2025C8202325A1005773FB /* Profile.swift in Sources */,
 				FC8B14242023A8210004F146 /* PlanViewController.swift in Sources */,
 				FC206A9C2022A6D200FF0F45 /* AppDelegate.swift in Sources */,
 				FC206F322022B92000FF0F45 /* TaCoExtension.swift in Sources */,
+				FC8B143A2023D7E50004F146 /* CalendarCollectionViewCell.swift in Sources */,
 				FC8B14292023AA6E0004F146 /* PlanCollectionViewCell.swift in Sources */,
 				FC206F412022DC1900FF0F45 /* Instruction.swift in Sources */,
 				FC206F3F2022DAD400FF0F45 /* RoundedImageView.swift in Sources */,
@@ -1617,6 +1663,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC8B14322023C2930004F146 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = FC8B14312023C2930004F146 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FC206A9F2022A6D200FF0F45 /* Main.storyboard */ = {
@@ -1753,6 +1807,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8736516750314287D0655964 /* Pods-WOOFWOOF.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EPWV8KDDJE;
@@ -1773,6 +1828,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75A1ABCE19606454B9510E82 /* Pods-WOOFWOOF.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EPWV8KDDJE;
