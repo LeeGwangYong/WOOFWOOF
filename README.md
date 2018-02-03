@@ -2,4 +2,4 @@
 
 Using BLE, Background/Foreground Notification, Daum Map
 
-https://youtu.be/UWDnu0y7ZQk
+https://youtu.be/A0o9GDQA8pg
